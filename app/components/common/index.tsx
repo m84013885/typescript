@@ -1,6 +1,3 @@
-import * as React from "react"
-import { useEffect } from "react"
-
-import Toast from './toast'
+import Toast from './toast/index'
 
 export { Toast }

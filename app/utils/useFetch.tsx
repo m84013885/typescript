@@ -2,7 +2,7 @@
 
 import * as md5 from "md5"
 
-const useFetch = async (obj:any) => {
+const useFetch = async (obj: any) => {
     const CREDS = 'include'
     const SALT = ''
 
@@ -42,6 +42,7 @@ const useFetch = async (obj:any) => {
         return sigString
     }
     const sigFunc = (query: any, body: any) => {
+        // ObjectConstructor
         query = Object.assign(Mustparameter(), query)
         const sigQueryString = sigSortObj(query)
         if (body) {
@@ -59,16 +60,16 @@ const useFetch = async (obj:any) => {
     const method = obj.method || 'GET'
     const credentials = obj.credentials || CREDS
     const data = obj.body || null
-    let confFetch:any = { method, credentials }
+    let confFetch: any = { method, credentials }
     if (method === 'POST') { confFetch = { method, credentials, body: JSON.stringify(data) } }
-    return new Promise(function (resolve, reject) {
+    return new Promise((resolve, reject) => {
         fetch(url, confFetch)
             .then(checkStatus)
-            .then(res => res.json())
-            .then(res => {
+            .then((res: any) => res.json())
+            .then((res: any) => {
                 resolve(res)
             })
-            .catch(err => { reject(err) })
+            .catch((err: any) => { reject(err) })
     })
 }
 
