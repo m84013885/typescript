@@ -4,7 +4,7 @@ import * as style from "./main.css"
 
 import useFetch from '../utils/usefetch'
 
-import { Toast } from './common/index'
+import { Toast, Svga } from './common/index'
 
 const Main = () => {
     useEffect(() => {
@@ -25,6 +25,9 @@ const Main = () => {
         <React.Fragment>
             <h1 className={style.text}> 123!</h1>
             <div className={style.test}></div>
+            <div className={style.animaBox}>
+                <Svga />
+            </div>
             <Toast />
         </React.Fragment>
     )

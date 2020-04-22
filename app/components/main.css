@@ -6,3 +6,12 @@
   height: 50px;
   background-image: url(../assets/flare.png);
 }
+.animaBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 375px;
+  height: 540px;
+  background-image: url(../assets/head@3x.png);
+  background-size: 100% 100%;
+}

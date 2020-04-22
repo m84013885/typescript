@@ -28,6 +28,7 @@ const useFetch = async (obj: any) => {
             net: 'wifi'
         }
     }
+    // 拼接参数
     const sigSortObj = (obj: any) => {
         if (!obj) { return '' }
         const arr = []
@@ -41,6 +42,7 @@ const useFetch = async (obj: any) => {
         }
         return sigString
     }
+    // 获取sig
     const sigFunc = (query: any, body: any) => {
         // ObjectConstructor
         query = Object.assign(Mustparameter(), query)
