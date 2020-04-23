@@ -28,7 +28,7 @@ const Svga = () => {
                     .$on('stop', () => console.log('event stop'))
                     .$on('end', () => console.log('event end'))
                     .$on('clear', () => console.log('event clear'))
-                // .$on('process', () => console.log('event process', player.progress))
+                    // .$on('process', () => console.log('event process', player.progress))
 
                 player.start()
                 // player.pause()

@@ -69,7 +69,18 @@ const config = webpackMerge(commonConfig, {
     rules: [
       {
         test: new RegExp(`^(?!.*\\.common).*\\.css`),
-        use: [MiniCssExtractPlugin.loader, 'css-loader?modules', 'postcss-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                mode: 'local',
+                localIdentName: '[local]--[hash:base64:5]'
+              }
+            }
+          },
+          'postcss-loader'],
         include: [appDir],
         exclude: [nodeModuleDir]
       },
@@ -80,7 +91,7 @@ const config = webpackMerge(commonConfig, {
         exclude: [nodeModuleDir]
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|svga|jpg|gif)$/,
         use: [{
           loader: 'url-loader',
           options: {

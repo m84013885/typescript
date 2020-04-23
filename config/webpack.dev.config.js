@@ -40,7 +40,19 @@ const config = webpackMerge(commonConfig, {
     rules: [
       {
         test: new RegExp(`^(?!.*\\.common).*\\.css`),
-        use: ['style-loader', 'css-loader?modules', 'postcss-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                mode: 'local',
+                localIdentName: '[local]--[hash:base64:5]'
+              }
+            }
+          },
+          'postcss-loader'
+        ],
         exclude: [nodeModuleDir]
       },
       {
