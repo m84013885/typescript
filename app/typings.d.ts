@@ -14,6 +14,7 @@ declare var window: any
 declare const document: any
 declare const navigator: any
 declare const fetch: any
+declare const Image: any
 
 declare module 'md5' {
     const content: any
