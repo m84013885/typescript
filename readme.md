@@ -1,3 +1,6 @@
+## 2020-5-6
+### body增加ontouchstart属性确保active伪类的正常展示
+
 ## 2020-4-29
 ### 新增loading组件
 

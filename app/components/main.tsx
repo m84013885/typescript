@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo, useReducer } from "react";
 import * as style from "./main.css"
 
 import useFetch from '../utils/usefetch'
@@ -7,6 +7,7 @@ import useFetch from '../utils/usefetch'
 import { Toast, Svga, Mask, Loading } from './common/index'
 
 import Draw from './draw'
+
 
 const Main = () => {
     useEffect(() => {
@@ -26,14 +27,14 @@ const Main = () => {
     return (
         <React.Fragment>
             <div className={style.scrollView}>
-                {/* <Draw/> */}
+                <Draw />
                 <h1 className={style.text}> 123!</h1>
                 <div className={style.test}></div>
                 <div className={style.animaBox}>
-                    {/* <Svga /> */}
+                    <Svga />
                 </div>
             </div>
-            <Loading/>
+            <Loading />
             <Mask />
             <Toast />
         </React.Fragment>
