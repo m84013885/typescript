@@ -51,13 +51,14 @@ const config = webpackMerge(commonConfig, {
               }
             }
           },
-          'postcss-loader'
-        ],
+          'postcss-loader'],
+        include: [appDir],
         exclude: [nodeModuleDir]
       },
       {
         test: new RegExp(`^(.*\\.common).*\\.css`),
         use: ['style-loader', 'css-loader', 'postcss-loader'],
+        include: [appDir],
         exclude: [nodeModuleDir]
       },
       {

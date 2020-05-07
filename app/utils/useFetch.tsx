@@ -1,5 +1,3 @@
-
-
 import * as md5 from "md5"
 
 const useFetch = async (obj: any) => {
