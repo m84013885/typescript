@@ -4,7 +4,7 @@ import * as style from "./main.css"
 
 import useFetch from '../utils/usefetch'
 
-import { Toast, Svga, Mask, Loading } from './common/index'
+import { Toast, Svga, Mask, Loading, Img } from './common/index'
 
 import Draw from './draw'
 
@@ -27,6 +27,7 @@ const Main = () => {
     return (
         <React.Fragment>
             <div className={style.scrollView}>
+                <Img className={style.test}>123</Img>
                 <Draw />
                 <h1 className={style.text}> 123!</h1>
                 <div className={style.test}></div>
