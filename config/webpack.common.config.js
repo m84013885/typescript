@@ -4,7 +4,8 @@ const webpack = require('webpack')
 const nodeModuleDir = path.resolve(process.cwd(), 'node_module')
 const appDir = path.resolve(process.cwd(), 'app')
 module.exports = {
-  entry: { 'app': [path.resolve(appDir, 'app.tsx')] },
+  // entry: { 'app': [path.resolve(appDir, 'app.tsx')] },
+  entry: {},
   plugins: [
     new webpack.DefinePlugin({ __DEV__: JSON.stringify(JSON.parse(process.env.NODE_ENV || 'true')) })
   ],

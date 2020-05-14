@@ -3,18 +3,22 @@ import { useEffect, useState } from "react";
 import * as style from "./index.css"
 
 import { Downloader, Parser, Player } from 'svga.lite'
-import jb from '../../../assets/bounce.svga'
 
 let canvas: any = null
 
-const Svga = () => {
+interface prop {
+    img: any;
+}
+
+const Svga = (prop: prop) => {
+    const img = prop.img
     useEffect(() => {
         const downloader = new Downloader()
         const parser = new Parser()
         const player = new Player(canvas)
 
             ; (async () => {
-                const fileData = await downloader.get(jb)
+                const fileData = await downloader.get(img)
                 const svgaData = await parser.do(fileData)
 
                 player.set({

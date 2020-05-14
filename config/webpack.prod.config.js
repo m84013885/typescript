@@ -9,6 +9,7 @@ const path = require('path')
 const process = require('process')
 const nodeModuleDir = path.resolve(process.cwd(), 'node_module')
 const appDir = path.resolve(process.cwd(), 'app')
+const { routers } = require('../router.json')
 const outputPath = path.resolve(process.cwd(), 'build')
 const assestPathName = 'assets'
 const config = webpackMerge(commonConfig, {
@@ -53,17 +54,17 @@ const config = webpackMerge(commonConfig, {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({ filename: assestPathName + `/[name].[chunkhash:5].css` }),
-    new HtmlWebpackPlugin({
-      filename: `index.html`,
-      title: `demo`,
-      template: path.join(appDir, 'app.html'),
-      minify: {
-        collapseWhitespace: true,
-        conservativeCollapse: true
-      },
-      inject: true,
-      chunks: ['vendors', 'default', 'app']
-    })
+    // new HtmlWebpackPlugin({
+    //   filename: `index.html`,
+    //   title: `demo`,
+    //   template: path.join(appDir, 'app.html'),
+    //   minify: {
+    //     collapseWhitespace: true,
+    //     conservativeCollapse: true
+    //   },
+    //   inject: true,
+    //   chunks: ['vendors', 'default', 'app']
+    // })
   ],
   module: {
     rules: [
@@ -106,4 +107,17 @@ const config = webpackMerge(commonConfig, {
     ]
   }
 })
+routers.map((item) => {
+  const tempSrc = path.join(appDir, `./${item}/app.html`)
+  const plugin = new HtmlWebpackPlugin({
+    filename: `${item}.html`,
+    title: 'demo',
+    template: tempSrc,
+    inject: true,
+    chunks: ['manifest', 'vendors', item]
+  })
+  config.entry[item] = [path.resolve(appDir, `./${item}/app.tsx`)]
+  config.plugins.splice(-1, 0, plugin)
+})
+
 module.exports = config

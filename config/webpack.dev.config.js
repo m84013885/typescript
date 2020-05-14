@@ -9,6 +9,7 @@ const ip = require('ip')
 const port = 8080
 const host = ip.address()
 const appDir = path.resolve(process.cwd(), 'app')
+const { routers } = require('../router.json')
 const config = webpackMerge(commonConfig, {
   mode: 'development',
   devServer: {
@@ -28,13 +29,13 @@ const config = webpackMerge(commonConfig, {
   devtool: 'inline-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      filename: `index.html`,
-      title: 'demo',
-      template: path.join(appDir, 'app.html'),
-      inject: true,
-      chunks: ['app']
-    })
+    // new HtmlWebpackPlugin({
+    //   filename: `index.html`,
+    //   title: 'demo',
+    //   template: path.join(appDir, 'app.html'),
+    //   inject: true,
+    //   chunks: ['app']
+    // })
   ],
   module: {
     rules: [
@@ -73,4 +74,17 @@ const config = webpackMerge(commonConfig, {
     ]
   }
 })
+routers.map((item) => {
+  const tempSrc = path.join(appDir, `./${item}/app.html`)
+  const plugin = new HtmlWebpackPlugin({
+    filename: `${item}`,
+    title: 'demo',
+    template: tempSrc,
+    inject: true,
+    chunks: [item]
+  })
+  config.entry[item] = [path.resolve(appDir, `./${item}/app.tsx`)]
+  config.plugins.push(plugin)
+})
+
 module.exports = config
