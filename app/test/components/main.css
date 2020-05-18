@@ -4,28 +4,153 @@
   width: 100%;
   height: 100%;
 }
-.text{
-  color: #0c4141;
-}
-.test{
-  width: 300px;
-  height: 380px;
-  background-image: url(https://static.yuanbobo.com/activity2019/weekStar/assest/441ec04a642138af58ab6573d8e6e110.png);
-  background-size: 100% 100%;
-  animation: anima 3s cubic-bezier(0.155, 0.980, 1.000, -0.095);
-}
-
-@keyframes anima{
-    0%{opacity: 0;}
-    100%{opacity: 1;}
-}
-.animaBox{
+.all{
   display: flex;
-  overflow: hidden;
+  margin-top: 20px;
+  width: 100%;
+  color: #F6F7FB;
+  letter-spacing: 0;
+  font-size: 14px;
+  font-family: PingFangSC-Medium;
+}
+.all>div{
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 375px;
-  height: 540px;
-  background-image: url(../assets/head@3x.png);
-  background-size: 100% 100%;
+  margin: 0 11.25px;
+  width:165px;
+  height: 30px;
+  border: 1px solid rgba(151,151,151,0.80);
+  background-image: linear-gradient(180deg, #747B82 0%, #40454B 100%);
+  box-shadow: 4px 4px 0 0 rgba(87,87,87,0.48);
+}
+.blockBox{
+  display: flex;
+  flex-wrap: wrap;
+}
+.block{
+  box-sizing: border-box;
+  margin: 0 11.25px;
+  margin-top: 10px;
+  width:165px;
+  height: 165px;
+  border: 1px solid rgba(151,151,151,0.80);
+  background-image: linear-gradient(180deg, #747B82 0%, #40454B 100%);
+  box-shadow: 4px 4px 0 0 rgba(87,87,87,0.48);
+}
+.blockUp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  background-color: #2C3136;
+  color: #F6F7FB;
+  letter-spacing: 0;
+  font-size: 12px;
+  font-family: PingFangSC-Medium;
+}
+.btns{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  height: 60px;
+}
+.btnEnd{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100px;
+  height: 37px;
+  /* border: 1px solid #FDCD87; */
+  border: 1px solid #FDCD87;
+  background-image: linear-gradient(135deg, #575E6D 0%, #2C303B 100%);
+  box-shadow: inset 0 0 0 2px #7E5E2F;
+  color: #F6F7FB;
+  letter-spacing: 0;
+  font-size: 14px;
+  font-family: PingFangSC-Medium;
+}
+.iconAbsolute{
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+}
+.minus{
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  background-image: url(../assets/minus.png);
+  background-size:100% 100%;
+}
+.add{
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  background-image: url(../assets/add.png);
+  background-size:100% 100%;
+}
+.blockNumber{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 125px;
+  color: #F6F7FB;
+  text-align: center;
+  letter-spacing: 0;
+  font-size: 14px;
+  font-family: PingFangSC-Medium;
+}
+.money{
+  margin-left: 5px;
+  width: 40px;
+  height: 40px;
+  background-image: url(../assets/money.png);
+  background-size:100% 100%;
+}
+.cutter{
+  background-image: url(../assets/cutter.png);
+
+  composes:money;
+}
+.ore{
+  background-image: url(../assets/ore.png);
+
+  composes:money;
+}
+.tree{
+  background-image: url(../assets/tree.png);
+
+  composes:money;
+}
+.power{
+  background-image: url(../assets/power.png);
+
+  composes:money;
+}
+.hot{
+  background-image: url(../assets/hot.png);
+
+  composes:money;
+}
+.iconBox{
+  position: absolute;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: -25px;
+  width: 20px;
+  height: 50px;
+}
+.iconBoxL{
+  left: 0;
+
+  composes:iconBox;
+}
+.iconBoxR{
+  right: 0;
+
+  composes:iconBox;
 }
