@@ -108,7 +108,7 @@ const config = webpackMerge(commonConfig, {
   }
 })
 routers.map((item) => {
-  const tempSrc = path.join(appDir, `./${item}/app.html`)
+  const tempSrc = path.join(appDir, `./${item}/index.html`)
   const plugin = new HtmlWebpackPlugin({
     filename: `${item}.html`,
     title: 'demo',
@@ -116,7 +116,7 @@ routers.map((item) => {
     inject: true,
     chunks: ['manifest', 'vendors', item]
   })
-  config.entry[item] = [path.resolve(appDir, `./${item}/app.tsx`)]
+  config.entry[item] = [path.resolve(appDir, `./${item}/index.tsx`)]
   config.plugins.splice(-1, 0, plugin)
 })
 

@@ -1,6 +1,6 @@
 import * as React from "react"
 import * as ReactDOM from "react-dom"
-import './app.common.css'
+import './index.common.css'
 
 import Main from "./components/main"
 
