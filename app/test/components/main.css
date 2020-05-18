@@ -12,6 +12,12 @@
   height: 380px;
   background-image: url(https://static.yuanbobo.com/activity2019/weekStar/assest/441ec04a642138af58ab6573d8e6e110.png);
   background-size: 100% 100%;
+  animation: anima 3s cubic-bezier(0.155, 0.980, 1.000, -0.095);
+}
+
+@keyframes anima{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
 }
 .animaBox{
   display: flex;

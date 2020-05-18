@@ -2,7 +2,7 @@ import * as React from "react";
 import { useEffect, useState, useCallback, useMemo, useReducer } from "react";
 import * as style from "./main.css"
 
-import useFetch from '../utils/usefetch'
+import useFetch from '../../utils/usefetch'
 
 import { Toast, Svga, Mask, Loading, Img } from '../../common/index'
 

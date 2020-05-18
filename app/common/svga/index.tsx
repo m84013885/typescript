@@ -7,18 +7,18 @@ import { Downloader, Parser, Player } from 'svga.lite'
 let canvas: any = null
 
 interface prop {
-    img: any;
+    svga: any;
 }
 
 const Svga = (prop: prop) => {
-    const img = prop.img
+    const svga = prop.svga
     useEffect(() => {
         const downloader = new Downloader()
         const parser = new Parser()
         const player = new Player(canvas)
 
             ; (async () => {
-                const fileData = await downloader.get(img)
+                const fileData = await downloader.get(svga)
                 const svgaData = await parser.do(fileData)
 
                 player.set({
