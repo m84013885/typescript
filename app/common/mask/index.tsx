@@ -1,7 +1,13 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 import * as style from "./index.css"
-const Mask = () => {
+
+interface prop {
+  children: any
+}
+
+const Mask = (prop: prop) => {
+  const { children } = prop
   // 控制显示不显示
   const [mask, setMask] = useState(false)
   // 控制动画
@@ -25,19 +31,11 @@ const Mask = () => {
       setMask(false)
     }
   }
-  const _renderMask = () => {
-    switch (maskNumber) {
-      case 0:
-        return (
-          <div className={style.test}>1</div>
-        )
-    }
-  }
   return (
     <div className={mask ? style.modal : style.none}>
       <div className={`${style.bg} ${show ? style.show : style.hide}`} onClick={() => { setShow(false) }} onAnimationEnd={(e) => { closeAnima(e) }}></div>
       <div className={`${style.child} ${show ? style.big : style.small}`}>
-        {_renderMask()}
+        {children[maskNumber]}
       </div>
     </div>
   )

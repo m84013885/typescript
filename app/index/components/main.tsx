@@ -29,7 +29,10 @@ const Main = () => {
                 <Img className={style.test}>123</Img>
             </div>
             <Loading />
-            <Mask />
+            <Mask>
+                <div>1</div>
+                <div>2</div>
+            </Mask>
             <Toast />
         </React.Fragment>
     )
