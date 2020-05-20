@@ -7,7 +7,7 @@ interface prop {
 }
 
 const Mask = (prop: prop) => {
-  const { children } = prop
+  const children = prop.children || ''
   // 控制显示不显示
   const [mask, setMask] = useState(false)
   // 控制动画

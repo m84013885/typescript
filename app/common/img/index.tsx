@@ -8,10 +8,9 @@ interface prop {
 }
 let lds: any = null
 const Img = (prop: prop) => {
+    const { className, children } = prop
     const [loading, setLoading] = useState(true)
     const [scale, setScale] = useState(1)
-    const className = prop.className
-    const children = prop.children
     const _getDom = (e: any) => {
         if (e) {
             const str = window.getComputedStyle(e).backgroundImage

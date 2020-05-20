@@ -1,6 +1,6 @@
 import * as md5 from "md5"
 
-const useFetch = async (obj: any) => {
+const _fetch = async (obj: any) => {
     const CREDS = 'include'
     const SALT = ''
 
@@ -73,4 +73,4 @@ const useFetch = async (obj: any) => {
     })
 }
 
-export default useFetch
+export default _fetch

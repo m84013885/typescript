@@ -11,7 +11,7 @@ interface prop {
 }
 
 const Svga = (prop: prop) => {
-    const svga = prop.svga
+    const { svga } = prop
     useEffect(() => {
         const downloader = new Downloader()
         const parser = new Parser()
