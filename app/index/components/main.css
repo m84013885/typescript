@@ -1,25 +1,7 @@
 .scrollView{
+  position: relative;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   width: 100%;
   height: 100%;
-}
-.text{
-  color: #0c4141;
-}
-.test{
-  width: 300px;
-  height: 380px;
-  background-image: url(https://static.yuanbobo.com/activity2019/weekStar/assest/441ec04a642138af58ab6573d8e6e110.png);
-  background-size: 100% 100%;
-}
-.animaBox{
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  width: 375px;
-  height: 540px;
-  background-image: url(../assets/head@3x.png);
-  background-size: 100% 100%;
 }
