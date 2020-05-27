@@ -35,7 +35,7 @@ const Mask = (prop: prop) => {
     <div className={mask ? style.modal : style.none}>
       <div className={`${style.bg} ${show ? style.show : style.hide}`} onClick={() => { setShow(false) }} onAnimationEnd={(e) => { closeAnima(e) }}></div>
       <div className={`${style.child} ${show ? style.big : style.small}`}>
-        {children[maskNumber]}
+        {children.length ? children[maskNumber] : children}
       </div>
     </div>
   )

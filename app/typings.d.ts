@@ -13,7 +13,8 @@ interface ObjectConstructor {
 interface Window {
     setLoading: any,
     setToast: any,
-    setMask: any
+    setMask: any,
+    timer: any
 }
 
 declare module 'md5' {
@@ -24,5 +25,5 @@ declare module 'svga.lite' {
     const Downloader: any
     const Parser: any
     const Player: any
-    export  { Downloader, Parser, Player }
+    export { Downloader, Parser, Player }
 }
