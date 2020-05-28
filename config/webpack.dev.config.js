@@ -29,13 +29,6 @@ const config = webpackMerge(commonConfig, {
   devtool: 'inline-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    // new HtmlWebpackPlugin({
-    //   filename: `index.html`,
-    //   title: 'demo',
-    //   template: path.join(appDir, 'app.html'),
-    //   inject: true,
-    //   chunks: ['app']
-    // })
   ],
   module: {
     rules: [

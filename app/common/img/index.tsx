@@ -17,8 +17,7 @@ const Img = (prop: prop) => {
             const width = parseInt(window.getComputedStyle(e).width)
             const height = parseInt(window.getComputedStyle(e).height)
             width > height ? setScale(height / 80) : setScale(width / 80)
-            const r = /\".+\"/ig
-            const t = str.match(r)[0].slice(1, -1)
+            const t = str.slice(5,-2)
             const img = new Image()
             img.src = t
             img.onload = () => {
