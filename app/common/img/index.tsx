@@ -7,16 +7,16 @@ interface prop {
     position?: any;
     children?: any;
 }
-let init = true
 let lds: any = null
 const Img = (prop: prop) => {
     const { className, children, position } = prop
     const [loading, setLoading] = useState(true)
     const [wh, setWh] = useState([0, 0])
     const [scale, setScale] = useState(1)
+    const [init, setInit] = useState(true)
     const _getDom = (e: any) => {
         if (e && init) {
-            init = false
+            setInit(false)
             const str = window.getComputedStyle(e).backgroundImage
             const width = parseInt(window.getComputedStyle(e).width)
             const height = parseInt(window.getComputedStyle(e).height)
