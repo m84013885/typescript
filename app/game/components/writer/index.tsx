@@ -1,0 +1,28 @@
+import * as React from 'react'
+import { useState, useEffect } from 'react'
+import * as style from "./index.css"
+
+interface prop {
+  children: string
+}
+
+const Index = (prop: prop) => {
+  const { children } = prop
+  const [writer, setWriter] = useState('')
+  const [writerNum, setWriterNum] = useState(0)
+  const [writerLast, setWriterLast] = useState(false)
+  useEffect(() => {
+    const text = children.substr(writerNum, 1)
+    if (text) {
+      setTimeout(() => { setWriterNum(writerNum + 1); setWriter(writer + text) }, 300)
+    } else {
+      setTimeout(() => { setWriterLast(true) }, 100)
+    }
+  }, [writer])
+  return (
+    <React.Fragment>
+      {writer}<span className={writerLast ? style.none : style.writerLast}>_</span>
+    </React.Fragment>
+  )
+}
+export default Index
