@@ -3,6 +3,7 @@
         "index",
         "test",
         "game",
-        "scroll"
+        "scroll",
+        "canvas"
     ]
 }

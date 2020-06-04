@@ -7,28 +7,40 @@ import { Toast, Svga, Mask, Loading, Img } from '../../common/index'
 import { useClientRect, useInterval } from './useCommon'
 
 import Writer from './writer'
+import Tabs from './tabs'
+
+let scrollDOM: any = null
 
 const Main = () => {
-    const _resetScrollTop = (e: any) => {
-        
+    const [lift, setLift] = useState(0)
+
+    const [tabs, setTabs] = useState(2)
+    
+    useInterval(() => {
+        if (scrollDOM) {
+            scrollDOM.scrollTop = 99999
+        }
+    }, 100)
+    useEffect(() => {
+
+    }, [])
+    const initText = () => {
+
     }
     return (
-        <React.Fragment>
-            <div className={style.scrollView}>
-                <div className={style.box} ref={(e) => { _resetScrollTop(e) }}>
-                    <Writer>
-                        请问请问请问请问请问请问请问请问啊请问请问请问请问请问请问请问请问啊请问请问请问请问请问请问请问请问啊请问请问请问请问请问请问请问请问啊
-                    </Writer>
-                </div>
-
-                {/* something */}
+        <div className={style.fragment}>
+            <div className={style.scrollView} ref={(e) => { scrollDOM = e }}>
+                {/* <Writer>
+                    请问请问请问请问请问请问请问请问啊请问请问请问请问请问请问请问请问啊请问请问请问请问请问请问请问请问啊请问请问请问请问请问请问请问请问啊
+                </Writer> */}
             </div>
+            <Tabs />
             <Loading />
             <Mask>
                 {/* something */}
             </Mask>
             <Toast />
-        </React.Fragment>
+        </div>
     )
 }
 

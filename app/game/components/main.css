@@ -1,14 +1,15 @@
+.fragment{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
 .scrollView{
   position: relative;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  width: 100%;
-  height: 100%;
-}
-.box{
-  position: relative;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  width: 100px;
-  height: 100px;
+  flex: 1;
+  box-sizing: border-box;
+  width: 375px;
+  background-color: burlywood;
 }

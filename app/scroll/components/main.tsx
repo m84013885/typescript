@@ -7,7 +7,10 @@ import { Toast, Svga, Mask, Loading, Img } from '../../common/index'
 import { useClientRect, useInterval } from './useCommon'
 import * as ScrollTrigger from '@terwanerik/scrolltrigger'
 
+const vw = window.outerWidth / 100
+
 const Main = () => {
+    const [move, setMove] = useState(0)
     useEffect(() => {
         const trigger = new ScrollTrigger.default({
             trigger: {
@@ -48,8 +51,6 @@ const Main = () => {
                         // 进入元素的回调方法
                         in: (trigger: any) => {
                             return new Promise((resolve, reject) => {
-                                console.log('in')
-                                console.log(trigger)
                                 setTimeout(resolve, 10)
                             })
                         },
@@ -68,7 +69,11 @@ const Main = () => {
                 // 滚动条的主体
                 element: document.getElementById('scroll'),
                 // 滚动中的回调函数
-                callback: (e: any) => { console.log(e) },
+                callback: (e: any) => {
+                    if (e.y < 500) {
+                        setMove(e.y + 100)
+                    }
+                },
                 // 开始滚动的回调函数
                 start: () => { },
                 // 停止滚动的回调函数
@@ -77,7 +82,7 @@ const Main = () => {
                 directionChange: () => { }
             }
         })
-        trigger.add('#an', {
+        trigger.add('.an', {
             toggle: {
                 class: {
                     in: ['animateIn'],
@@ -89,8 +94,10 @@ const Main = () => {
     return (
         <React.Fragment>
             <div className={style.scrollView} id="scroll">
+                <div className="an"></div>
+                <div className={style.move} style={{ top: move + 'px' }}></div>
                 <div className={style.test}></div>
-                <div id="an"></div>
+                <div className="an"></div>
             </div>
             <Loading />
             <Mask>
