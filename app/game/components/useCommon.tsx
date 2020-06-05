@@ -18,8 +18,6 @@ function useInterval(callback: any, delay: number) {
     const saveCallback: any = useRef()
     useEffect(() => {
         saveCallback.current = callback
-    })
-    useEffect(() => {
         function tick() {
             saveCallback.current()
         }
@@ -29,4 +27,10 @@ function useInterval(callback: any, delay: number) {
     }, [])
 }
 
-export { useClientRect, useInterval }
+function _resetScrollTop() {
+    window.timer.push(setInterval(() => {
+        window.scrollDOM.scrollTop = 99999
+    }, 100))
+}
+
+export { useClientRect, useInterval, _resetScrollTop }

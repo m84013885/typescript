@@ -1,6 +1,7 @@
-.tabs0{
+.tabsHide{
   display: flex;
   overflow: hidden;
+  flex-direction: column;
   width: 100%;
   height: 10px;
   border-top-left-radius: 10px;
@@ -8,12 +9,31 @@
   background-color: #ffffff;
   transition: height 0.2s linear;
 }
-.tabs1{
-  height: 100px;
+.tabsHideB{
+  height: 20px;
 
-  composes:tabs0;
+  composes:tabsHide;
 }
-.tabs0>div{
+.tabsShow{
+  height: 130px;
+
+  composes:tabsHide;
+}
+.tabsBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  height: 50px;
+}
+.tabsBox:last-child{
+  margin-top: 0px;
+}
+.box{
   flex: 1;
-  padding: 10px 20px;
+  box-sizing: border-box;
+  margin: 0 15px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #f1f1f1;
 }
