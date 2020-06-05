@@ -3,17 +3,15 @@ import { useState, useEffect } from 'react'
 import * as style from "./index.css"
 
 interface prop {
-  state: number
+  children: string,
+  type?: number
 }
 
 const Index = (prop: prop) => {
-  const { state } = prop
+  const { children, type } = prop
   return (
-    <div className={state === 1 ? style.tabs1 : style.tabs0}>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div className={`${type === 1 ? style.shake : style.show} text-content`}>
+      {children}
     </div>
   )
 }

@@ -11,5 +11,50 @@
   flex: 1;
   box-sizing: border-box;
   width: 375px;
-  background-color: burlywood;
+  background-color: #f1f1f1;
+}
+.more{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 50px;
+  height: 30px;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+.moreBall{
+  margin: 0 2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #333333;
+  animation: moreBallAnima 2s infinite;
+}
+@keyframes moreBallAnima {
+  0% {
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.arrow{
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  background-image: url(../assets/arrow.png);
+  background-size: 100% 100%;
+}
+.end{
+  margin:20px ;
+  text-align: right;
 }

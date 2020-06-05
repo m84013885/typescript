@@ -10,7 +10,8 @@ interface Window {
     setLoading: any,
     setToast: any,
     setMask: any,
-    timer: any
+    timer: any,
+    scrollDOM: any
 }
 
 declare module 'md5' {

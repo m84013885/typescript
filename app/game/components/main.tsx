@@ -8,33 +8,40 @@ import { useClientRect, useInterval } from './useCommon'
 
 import Writer from './writer'
 import Tabs from './tabs'
-
-let scrollDOM: any = null
+import Show from './show'
 
 const Main = () => {
-    const [lift, setLift] = useState(0)
-
-    const [tabs, setTabs] = useState(2)
-    
-    useInterval(() => {
-        if (scrollDOM) {
-            scrollDOM.scrollTop = 99999
-        }
-    }, 100)
+    const [state, setState] = useState(1)
     useEffect(() => {
 
     }, [])
-    const initText = () => {
-
+    const more = (level?: number) => {
+        if (level === 0) {
+            return (
+                <div className={style.more}>
+                    <div className={style.moreBall}></div>
+                    <div className={style.moreBall}></div>
+                    <div className={style.moreBall}></div>
+                </div>
+            )
+        } else if (level === 1) {
+            return (
+                <div className={style.arrow} onClick={(e: any) => { e.stopPropagation(); setState(1) }}></div>
+            )
+        } else {
+            return (
+                <div className={style.end}>End</div>
+            )
+        }
     }
     return (
         <div className={style.fragment}>
-            <div className={style.scrollView} ref={(e) => { scrollDOM = e }}>
-                {/* <Writer>
-                    请问请问请问请问请问请问请问请问啊请问请问请问请问请问请问请问请问啊请问请问请问请问请问请问请问请问啊请问请问请问请问请问请问请问请问啊
-                </Writer> */}
+            <div className={style.scrollView} ref={(e) => { window.scrollDOM = e }} onClick={() => { setState(0) }}>
+                <Writer>1</Writer>
+                <Show>1</Show>
+                {more(1)}
             </div>
-            <Tabs />
+            <Tabs state={state} />
             <Loading />
             <Mask>
                 {/* something */}

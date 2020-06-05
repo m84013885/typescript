@@ -14,15 +14,19 @@ const Index = (prop: prop) => {
   useEffect(() => {
     const text = children.substr(writerNum, 1)
     if (text) {
-      setTimeout(() => { setWriterNum(writerNum + 1); setWriter(writer + text) }, 300)
+      setTimeout(() => {
+        setWriterNum(writerNum + 1)
+        setWriter(writer + text)
+        window.scrollDOM.scrollTop = 99999
+      }, 100)
     } else {
       setTimeout(() => { setWriterLast(true) }, 100)
     }
   }, [writer])
   return (
-    <React.Fragment>
+    <div className='text-content'>
       {writer}<span className={writerLast ? style.none : style.writerLast}>_</span>
-    </React.Fragment>
+    </div>
   )
 }
 export default Index
