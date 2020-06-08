@@ -4,10 +4,11 @@ import * as style from "./index.css"
 
 interface prop {
   state: number
+  tabs: any[]
 }
 
 const Index = (prop: prop) => {
-  const { state } = prop
+  const { state, tabs } = prop
   const _bigScreen = () => {
     let result = false
     const rate = window.screen.height / window.screen.width
@@ -21,12 +22,9 @@ const Index = (prop: prop) => {
   return (
     <div className={state === 1 ? style.tabsShow : _bigScreen ? style.tabsHideB : style.tabsHide}>
       <div className={style.tabsBox}>
-        <div className={state === 1 ? style.box : style.none}></div>
-        <div className={state === 1 ? style.box : style.none}></div>
-      </div>
-      <div className={style.tabsBox}>
-        <div className={state === 1 ? style.box : style.none}></div>
-        <div className={state === 1 ? style.box : style.none}></div>
+        {state === 1 && tabs && tabs.map((c, i) => {
+          return <div className={style.box} key={i}>{c.text}</div>
+        })}
       </div>
     </div >
   )
