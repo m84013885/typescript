@@ -3,11 +3,12 @@ import { useState, useEffect } from 'react'
 import * as style from "./index.css"
 
 interface prop {
-  children: string
+  children: string,
+  width: number
 }
 
 const Index = (prop: prop) => {
-  const { children } = prop
+  const { children, width } = prop
   const [writer, setWriter] = useState('')
   const [writerNum, setWriterNum] = useState(0)
   const [writerLast, setWriterLast] = useState(false)
@@ -24,7 +25,7 @@ const Index = (prop: prop) => {
     }
   }, [writer])
   return (
-    <div className='text-content'>
+    <div className='text-content' style={{ width: width + 'px' }}>
       {writer}<span className={writerLast ? style.none : style.writerLast}>_</span>
     </div>
   )

@@ -14,11 +14,17 @@ import RedText from './redText'
 import Writer from './writer'
 import Show from './show'
 
+import { fetchRes } from './text'
+
+let step = 0
+
 const Main = () => {
     const [state, setState] = useState(0)
     const [content, setContent] = useState([])
     const [moreLevel, setMoreLevel] = useState(0)
     const [tabs, setTabs] = useState([])
+    const [maskImg, setMaskImg] = useState('')
+    const [maskImgType, setMaskImgType] = useState('')
     const _resetTimer = () => {
         _resetScrollTop()
         setTimeout(() => {
@@ -36,35 +42,29 @@ const Main = () => {
         localStorage.setItem('state', JSON.stringify(state))
     }
     useEffect(() => {
+        nextStep()
         init()
     }, [])
     const bindleGetMore = async () => {
-        const res: any = {
-            "step": 1,
-            "type": 1,
-            "content": '123123<r>123</r>ggg<r>asd</r>',
-            "level": 1,
-            "tabs": [
-                {
-                    "to": 11,
-                    "text": "请问"
-                },
-                {
-                    "to": 14,
-                    "text": "请问"
-                },
-                {
-                    "to": 13,
-                    "text": "请问"
-                }
-            ]
-        }
-        const { level, tabs } = res
+        nextStep()
+    }
+    const nextStep = (stepNumber?: number) => {
+        const res: any = fetchRes[stepNumber ? stepNumber : step]
+        const { level, tabs, img, imgType } = res
         if (level === 1) {
             setTabs(tabs)
         }
+        if (img) {
+            setMaskImg(img)
+            setMaskImgType(imgType)
+        }
+        setState(0)
         setMoreLevel(level)
         setContent([...content, res])
+        step++
+        if (level === 3) {
+            nextStep()
+        }
     }
     const more = (level?: number) => {
         switch (level) {
@@ -80,22 +80,69 @@ const Main = () => {
                 return (
                     <div className={style.arrow} onClick={(e: any) => { e.stopPropagation(); setState(1); _resetTimer() }}></div>
                 )
+            case 2:
+                return (
+                    <div className={style.animation} onClick={() => { nextStep(); window.setMask(0) }}></div>
+                )
             default:
                 return (
                     <div className={style.end}>End</div>
                 )
         }
     }
+    const resetMeasurementText = (content: string) => {
+        while (content.match('<r>')) {
+            content = content.replace('<r>', '')
+            content = content.replace('</r>', '')
+        }
+        const measurementDOM = document.getElementById('measurement')
+        let height = 0, width = 0, contentText = ''
+        for (let i = 0; i < content.length; i++) {
+            contentText = contentText + content.slice(i, i + 1)
+            measurementDOM.innerHTML = contentText
+            const Mheight = parseInt(window.getComputedStyle(measurementDOM).height)
+            if (height !== Mheight && i !== 0) {
+                measurementDOM.innerHTML = contentText.slice(0, -1)
+                const MWidth = parseInt(window.getComputedStyle(measurementDOM).width)
+                for (let i = 0; i < MWidth; i++) {
+                    measurementDOM.style.width = (MWidth - i) + 'px'
+                    const Mheight = parseInt(window.getComputedStyle(measurementDOM).height)
+                    if (Mheight !== height) {
+                        width = (MWidth + 1)
+                        i = MWidth
+                    }
+                }
+            } else {
+                height = Mheight
+                console.log(height)
+            }
+        }
+        if (width === 0) {
+            const MWidth = parseInt(window.getComputedStyle(measurementDOM).width)
+            width = MWidth
+        }
+        measurementDOM.style.width = ''
+        measurementDOM.innerHTML = ''
+        return width
+    }
     const _renderContent = (type: number, content: any) => {
+        const width = resetMeasurementText(content)
         switch (type) {
             case 11:
-                return <Show>{content}</Show>
+                return <Show width={width}>{content}</Show>
             case 12:
-                return <Show type={1}>{content}</Show>
+                return <Show type={1} width={width}>{content}</Show>
             case 21:
-                return <Writer>{content}</Writer>
+                return <Writer width={width}>{content}</Writer>
             default:
-                return <div className="text-content"><RedText>{content}</RedText></div>
+                return <div className="text-content" style={{ width: width + 'px' }}><RedText>{content}</RedText></div>
+        }
+    }
+    const bindleShowImg = (img: string) => {
+        if (img) {
+            setMaskImg(img)
+            setMaskImgType('')
+            window.setMask(0)
         }
     }
     return (
@@ -103,15 +150,18 @@ const Main = () => {
             <div className={style.scrollView} ref={(e) => { window.scrollDOM = e }} onClick={() => { setState(0) }}>
                 {content.map((c, i) => {
                     return (
-                        <div key={i}>{_renderContent(c.type, c.content)}</div>
+                        <div key={i} className={c.showImg && style.showImgBtn} onClick={() => { bindleShowImg(c.showImg) }}>
+                            {_renderContent(c.type, c.content)}
+                        </div>
                     )
                 })}
-                {more(moreLevel)}
+                <div>{more(moreLevel)}</div>
             </div>
-            <Tabs state={state} tabs={tabs} />
+            <Tabs state={state} tabs={tabs} nextStep={nextStep} />
+            <div className={style.measurement}><div id="measurement"></div></div>
             <Loading />
             <Mask>
-                <ImgAnima />
+                <ImgAnima image={maskImg} imageType={maskImgType} nextStep={nextStep} />
             </Mask>
             <Toast />
         </div>

@@ -44,3 +44,12 @@
     transform:translate(0px);
   }
 }
+.textBlock{
+  position: relative;
+  display: inline;
+}
+.textBlockBg{
+  position: absolute;
+  height: 100%;
+  background-color: #ffffff;
+}

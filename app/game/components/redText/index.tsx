@@ -21,11 +21,16 @@ const Index = (prop: prop) => {
       init += 2
       _render()
     } else {
+      all = all.concat(children)
       setPutText(all)
     }
   }
   useEffect(() => {
-    _render()
+    if (children.indexOf('<r>') !== -1) {
+      _render()
+    } else {
+      setPutText([children])
+    }
   }, [])
   return (
     <React.Fragment>
