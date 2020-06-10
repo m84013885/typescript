@@ -14,7 +14,7 @@ import RedText from './redText'
 import Writer from './writer'
 import Show from './show'
 
-import { fetchRes } from './text'
+import { fetchRes, event } from './text'
 
 let step = 0
 
@@ -25,6 +25,7 @@ const Main = () => {
     const [tabs, setTabs] = useState([])
     const [maskImg, setMaskImg] = useState('')
     const [maskImgType, setMaskImgType] = useState('')
+    const [resetTo, setResetTo] = useState(null)
     const _resetTimer = () => {
         _resetScrollTop()
         setTimeout(() => {
@@ -33,24 +34,46 @@ const Main = () => {
             }
         }, 300)
     }
-    const init = () => {
-        localStorage.clear()
-        let state = {
-            name: 1,
-            attributeName: 2
-        }
-        localStorage.setItem('state', JSON.stringify(state))
-    }
     useEffect(() => {
         nextStep()
-        init()
+        localStorage.clear()
     }, [])
-    const bindleGetMore = async () => {
-        nextStep()
+    const bindleGetMore = () => {
+        if (resetTo) {
+            nextStep(resetTo)
+            setResetTo(null)
+        } else {
+            nextStep()
+        }
+    }
+    const conditionsEvent = () => {
+        for (let i = 0; i < event.length; i++) {
+            const num = parseInt(localStorage[event[i].name]) || 0
+            if (event[i].max < num && event[i].init) {
+                const res: any = event[i]
+                res.init = false
+                const { to } = res
+                setState(0)
+                setMoreLevel(0)
+                step = to
+                setResetTo(null)
+            }
+        }
     }
     const nextStep = (stepNumber?: number) => {
-        const res: any = fetchRes[stepNumber ? stepNumber : step]
-        const { level, tabs, img, imgType } = res
+        let init = 0
+        if (stepNumber) {
+            for (let i = 0; i < fetchRes.length; i++) {
+                if (fetchRes[i].step === stepNumber) {
+                    init = i
+                }
+            }
+            step = init
+        } else {
+            init = step
+        }
+        const res: any = fetchRes[init]
+        const { level, tabs, img, imgType, resetTo } = res
         if (level === 1) {
             setTabs(tabs)
         }
@@ -58,13 +81,15 @@ const Main = () => {
             setMaskImg(img)
             setMaskImgType(imgType)
         }
+        conditionsEvent()
+        if (resetTo) {
+            setResetTo(resetTo)
+        }
         setState(0)
         setMoreLevel(level)
         setContent([...content, res])
         step++
-        if (level === 3) {
-            nextStep()
-        }
+  
     }
     const more = (level?: number) => {
         switch (level) {
@@ -114,7 +139,6 @@ const Main = () => {
                 }
             } else {
                 height = Mheight
-                console.log(height)
             }
         }
         if (width === 0) {

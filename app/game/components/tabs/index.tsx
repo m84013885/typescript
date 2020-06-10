@@ -20,11 +20,42 @@ const Index = (prop: prop) => {
     }
     return result
   }
+  const bindleClick = (c: any) => {
+    if (c.state) {
+      for (let i = 0; i < c.state.length; i++) {
+        if (localStorage[c.state[i].name]) {
+          localStorage[c.state[i].name] = parseInt(localStorage[c.state[i].name]) + parseInt(c.state[i].number)
+        } else {
+          localStorage[c.state[i].name] = c.state[i].number
+        }
+      }
+    }
+    c.mask ? window.setMask(0) : ''
+    if (c.conditions) {
+      const { type, typeName, number, to, next } = c.conditions
+      localStorage[typeName] = localStorage[typeName] ? localStorage[typeName] : 0
+      if (type === 'min') {
+        if (localStorage[typeName] < number) {
+          nextStep(to)
+        } else {
+          nextStep(next)
+        }
+      } else {
+        if (localStorage[typeName] > number) {
+          nextStep(to)
+        } else {
+          nextStep(next)
+        }
+      }
+    } else {
+      nextStep(c.to)
+    }
+  }
   return (
     <div className={state === 1 ? style.tabsShow : _bigScreen ? style.tabsHideB : style.tabsHide}>
       <div className={style.tabsBox}>
         {state === 1 && tabs && tabs.map((c, i) => {
-          return <div className={style.box} key={i} onClick={() => { c.mask ? window.setMask(0) : ''; nextStep(c.to) }}>{c.text}</div>
+          return <div className={style.box} key={i} onClick={() => { bindleClick(c) }}>{c.text}</div>
         })}
       </div>
     </div >
