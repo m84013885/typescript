@@ -17,6 +17,7 @@ import Show from './show'
 import { fetchRes, event } from './text'
 
 let step = 0
+let thisStepTo = 0
 
 const Main = () => {
     const [state, setState] = useState(0)
@@ -40,8 +41,9 @@ const Main = () => {
     }, [])
     const bindleGetMore = () => {
         if (resetTo) {
+            thisStepTo = resetTo
             nextStep(resetTo)
-            setResetTo(null)
+            thisStepTo === resetTo && setResetTo(null)
         } else {
             nextStep()
         }
@@ -49,14 +51,13 @@ const Main = () => {
     const conditionsEvent = () => {
         for (let i = 0; i < event.length; i++) {
             const num = parseInt(localStorage[event[i].name]) || 0
-            if (event[i].max < num && event[i].init) {
+            if (event[i].max <= num) {
                 const res: any = event[i]
-                res.init = false
+                res.max = 9999
                 const { to } = res
                 setState(0)
                 setMoreLevel(0)
-                step = to
-                setResetTo(null)
+                setResetTo(to)
             }
         }
     }
@@ -81,21 +82,21 @@ const Main = () => {
             setMaskImg(img)
             setMaskImgType(imgType)
         }
-        conditionsEvent()
         if (resetTo) {
             setResetTo(resetTo)
+            thisStepTo = resetTo
         }
         setState(0)
         setMoreLevel(level)
         setContent([...content, res])
         step++
-  
+        conditionsEvent()
     }
     const more = (level?: number) => {
         switch (level) {
             case 0:
                 return (
-                    <div className={style.more} onClick={bindleGetMore}>
+                    <div className={style.more} onClick={() => { bindleGetMore(); _resetTimer() }}>
                         <div className={style.moreBall}></div>
                         <div className={style.moreBall}></div>
                         <div className={style.moreBall}></div>
@@ -107,7 +108,7 @@ const Main = () => {
                 )
             case 2:
                 return (
-                    <div className={style.animation} onClick={() => { nextStep(); window.setMask(0) }}></div>
+                    <div className={style.animation} onClick={() => { nextStep(); window.setMask(0); _resetTimer() }}></div>
                 )
             default:
                 return (

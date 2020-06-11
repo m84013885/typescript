@@ -18,7 +18,6 @@ const Index = (prop: prop) => {
       setTimeout(() => {
         setWriterNum(writerNum + 1)
         setWriter(writer + text)
-        window.scrollDOM.scrollTop = 99999
       }, 100)
     } else {
       setTimeout(() => { setWriterLast(true) }, 100)

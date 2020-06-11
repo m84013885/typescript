@@ -3,20 +3,17 @@ export const event = [
     {
         "name": "time",
         "max": 30,
-        "to": 13,
-        "init": true
+        "to": 13
     },
     {
         "name": "sad",
         "max": 5,
-        "to": 20,
-        "init": true
+        "to": 20
     },
     {
         "name": "find",
         "max": 2,
-        "to": 26,
-        "init": true
+        "to": 26
     },
 ]
 
@@ -111,12 +108,13 @@ export const fetchRes = [
         "type": 11,
         "content": '你预约了周六的早上。',
         "level": 2,
-        "img": "https://avatar.yuanbobo.com/L5SAVPQHJNBRRPSF.jpg?imageMogr2/thumbnail/720x720/auto-orient",
+        "img": "https://avatar.yuanbobo.com/cover/T7VF8DT7RRZ3F8PV.jpg?imageMogr2/thumbnail/480x480/auto-orient",
         "imgType": ''
     },
     {
         "step": 7,
         "type": 11,
+        "showImg": "https://avatar.yuanbobo.com/cover/T7VF8DT7RRZ3F8PV.jpg?imageMogr2/thumbnail/480x480/auto-orient",
         "content": '你周五早早就睡下了。到了周六的早上，果然如愿的下起了大暴雨。但是这些都已经不能阻止你去面试。并且路线你已经掌握好了，按理说地铁是比较稳妥的，但是叫滴滴过去更为方便一点，你的选择是？',
         "level": 1,
         "tabs": [
@@ -216,7 +214,7 @@ export const fetchRes = [
         "type": 11,
         "content": '这天晴空万里，你和朋友约好在中心城喝东西，中心城离你家不远，坐地铁的话只需要两个站。你就自然而然的去坐地铁了。',
         "level": 2,
-        "img": "https://avatar.yuanbobo.com/L5SAVPQHJNBRRPSF.jpg?imageMogr2/thumbnail/720x720/auto-orient",
+        "img": "https://avatar.yuanbobo.com/cover/P91GD1AP6O5BLEN3.jpg?imageMogr2/thumbnail/480x480/auto-orient",
         "imgType": ''
     },
     {
@@ -224,7 +222,7 @@ export const fetchRes = [
         "type": 11,
         "content": '进了地铁站，地铁来了，但是你遇到了一件非常诡异的事情。不知道为什么你就是进不去地铁里。地铁的门开了之后好像还有一层隐形的门，还没开一样，你全身贴上去、往那看不见的门撞、甚至可以把东西扔进去，但你的人就是进不去，身边的人进进出出，就像是看不见你一样。你就这样目送地铁开走。这时你才想起，那个关于<r>上梅林的传闻...</r>',
         "level": 1,
-        "showImg": "https://avatar.yuanbobo.com/L5SAVPQHJNBRRPSF.jpg?imageMogr2/thumbnail/720x720/auto-orient",
+        "showImg": "https://avatar.yuanbobo.com/cover/P91GD1AP6O5BLEN3.jpg?imageMogr2/thumbnail/480x480/auto-orient",
         "tabs": [
             {
                 "state": [
@@ -254,7 +252,7 @@ export const fetchRes = [
         "type": 12,
         "content": '不料你妈只是<r>面目狰狞</r>的看着你，然后平静的说出这样一句话，“这不是理所当然的吗？”这时你才想起，你妈妈真的从你出生到现在从来没有离开过上梅林这个地方。你<r>感到一阵心凉</r>，不知道如何是好。',
         "level": 1,
-        "img": "https://avatar.yuanbobo.com/L5SAVPQHJNBRRPSF.jpg?imageMogr2/thumbnail/720x720/auto-orient",
+        "img": "https://avatar.yuanbobo.com/cover/4N1CYRRRH9VX5MH3.jpg?imageMogr2/thumbnail/480x480/auto-orient",
         "imgType": '',
         "tabs": [
             {
@@ -298,7 +296,7 @@ export const fetchRes = [
     {
         "step": 21,
         "type": 12,
-        "showImg": "https://avatar.yuanbobo.com/L5SAVPQHJNBRRPSF.jpg?imageMogr2/thumbnail/720x720/auto-orient",
+        "showImg": "https://avatar.yuanbobo.com/cover/4N1CYRRRH9VX5MH3.jpg?imageMogr2/thumbnail/480x480/auto-orient",
         "content": '你感觉你妈妈好像有点问题，你匆忙的跑下了楼，然后站在村里最繁华的十字路口，感到非常的迷茫。眼前的繁华好像和你现在的心情一点关系都没有一样。',
         "level": 0
     },
@@ -360,6 +358,7 @@ export const fetchRes = [
         "step": 26,
         "type": 11,
         "content": '你没办法了，受了两次打击，只好壮壮胆回家去了。你也没做什么亏心事，只是在家里呆久了。这有什么的。你就这样回家去了。',
-        "level": 0
+        "level": 0,
+        "resetTo": 18
     },
 ]
