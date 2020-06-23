@@ -7,6 +7,19 @@ import { Toast, Svga, Mask, Loading, Img } from '../../common/index'
 import { useClientRect, useInterval } from './useCommon'
 
 const Main = () => {
+    useEffect(() => {
+        const fetch = async () => {
+            const res = await _fetch({
+                url: 'https://huangqm.xyz/server/',
+                method: 'POST',
+                body: {
+                    a: 1
+                }
+            })
+            console.log(res)
+        }
+        fetch()
+    }, [])
     return (
         <React.Fragment>
             <div className={style.scrollView}>
