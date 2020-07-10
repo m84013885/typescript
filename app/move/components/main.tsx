@@ -6,46 +6,26 @@ import _fetch from '../../utils/fetch'
 import { Toast, Svga, Mask, Loading, Img } from '../../common/index'
 import { useClientRect, useInterval } from './useCommon'
 
-const www: any = [{
-    "step": 1,
-    "content": '我企鹅',
-    "to": 1,
-    "auto": 1,
-    "img": null,
-    "tabs": [
-        {
-            "need": [
-                { "famous": 3 }
-            ],
-            "to": 9,
-            "text": "拜访父亲故交"
-        },
-    ],
-    "tag": [
-        { "lift": 1 }
-    ]
-
-}]
-const wwww: any = [[1], [2, 3]]
-
 const Main = () => {
     useEffect(() => {
-        const fetch = async () => {
-            const res = await _fetch({
-                url: 'http://172.16.0.133:3000',
-                method: 'POST',
-                body: {
-                    a: wwww,
-                    b: www
-                }
-            })
-            console.log(res)
-        }
-        fetch()
+        const box = document.getElementById('box')
+        const w = box.getBoundingClientRect()
+        console.log(w)
     }, [])
+    const mouseDown = (e: any) => {
+        console.log(e.clientY)
+    }
+    const mouseMove = (e: any) => {
+        console.log(e)
+    }
     return (
         <React.Fragment>
             <div className={style.scrollView}>
+                <div className={style.box} id='box'
+                    onMouseDown={mouseDown}
+                    // onMouseMove={mouseMove}
+                    
+                ></div>
                 {/* something */}
             </div>
             <Loading />

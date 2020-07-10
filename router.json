@@ -5,6 +5,7 @@
         "game",
         "list",
         "scroll",
-        "canvas"
+        "canvas",
+        "move"
     ]
 }
