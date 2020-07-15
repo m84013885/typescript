@@ -1,11 +1,5 @@
 {
     "routers": [
-        "index",
-        "test",
-        "game",
-        "list",
-        "scroll",
-        "canvas",
-        "move"
+        "index"
     ]
 }

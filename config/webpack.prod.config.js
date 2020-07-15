@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin')
 const process = require('process')
 const nodeModuleDir = path.resolve(process.cwd(), 'node_module')
 const appDir = path.resolve(process.cwd(), 'app')
@@ -22,6 +23,11 @@ const config = webpackMerge(commonConfig, {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({ filename: assestPathName + `/[name].[chunkhash:5].css` }),
+    new CopyPlugin({
+      patterns: [
+        { from: path.resolve(process.cwd(), 'dll/dll.js'), to: path.join(outputPath, assestPathName) }
+      ]
+    }),
     new OptimizeCSSAssetsPlugin({})
   ],
   module: {
@@ -69,7 +75,7 @@ routers.map((item) => {
   const tempSrc = path.join(appDir, `./${item}/index.html`)
   const plugin = new HtmlWebpackPlugin({
     filename: `${item}.html`,
-    title: 'demo',
+    dll: `${assestPathName}/dll.js`,
     template: tempSrc,
     inject: true,
     chunks: [item],
