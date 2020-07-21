@@ -75,16 +75,15 @@ function useRenderTime(timeStart: number, timeEnd: number) {
 
     let year = 0
     if (timeStartYear !== timeEndYear) {
-        if (timeStartMonth >= timeEndMonth && timeStartDay >= timeEndDay) {
+        if (timeStartMonth >= timeEndMonth || timeStartDay >= timeEndDay) {
             year = timeEndYear - timeStartYear - 1
             timeStart = new Date(`${timeEndYear - 1}/${timeStartMonth}/${timeStartDay}`).getTime()   // 获取最后年的时间戳
         } else {
             year = timeEndYear - timeStartYear
             timeStart = new Date(`${timeEndYear}/${timeStartMonth}/${timeStartDay}`).getTime()   // 获取最后年的时间戳
         }
-        
     }
-    const time = (timeEnd - timeStart) / 1000
+    const time = (Math.abs(timeEnd - timeStart)) / 1000
     let day = time > 60 * 60 * 24 ? parseInt(time / (60 * 60 * 24) + '') : 0
     let hour = time > 60 * 60 ? parseInt(time / (60 * 60) + '') - (day * 24) : 0
     let minute = time > 60 ? parseInt(time / 60 + '') - (day * 24 * 60) - (hour * 60) : 0

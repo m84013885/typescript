@@ -1,5 +1,5 @@
 const commonConfig = require('./webpack.common.config')
-const webpackMerge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const path = require('path')
 const webpack = require('webpack')
 const process = require('process')
@@ -10,7 +10,7 @@ const port = 8080
 const host = ip.address()
 const appDir = path.resolve(process.cwd(), 'app')
 const { routers } = require('../router.json')
-const config = webpackMerge(commonConfig, {
+const config = merge(commonConfig, {
   mode: 'development',
   devServer: {
     contentBase: path.resolve(process.cwd(), 'dll'),

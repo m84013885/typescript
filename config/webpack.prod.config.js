@@ -1,5 +1,5 @@
 const commonConfig = require('./webpack.common.config')
-const webpackMerge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -12,7 +12,7 @@ const appDir = path.resolve(process.cwd(), 'app')
 const { routers } = require('../router.json')
 const outputPath = path.resolve(process.cwd(), 'build')
 const assestPathName = 'assets'
-const config = webpackMerge(commonConfig, {
+const config = merge(commonConfig, {
   mode: 'production',
   output: {
     path: outputPath,
