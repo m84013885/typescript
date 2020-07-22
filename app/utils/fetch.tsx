@@ -13,17 +13,8 @@ const _fetch = async (obj: any) => {
     }
     // 必要参数
     const Mustparameter = () => {
-        const ua: any = navigator.userAgent.toLowerCase()
-        let sys: string = 'web'
-        ua.indexOf('android') > -1 ? sys = 'android' : sys = 'ios'
         return {
-            sys: sys,
-            web: 2,
             ts: new Date().getTime(),
-            token: serverData.token || '',
-            app: serverData.app || 2,
-            chn: 'qq',
-            net: 'wifi'
         }
     }
     // 拼接参数

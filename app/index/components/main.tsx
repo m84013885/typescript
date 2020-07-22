@@ -6,6 +6,7 @@ import _fetch from '../../utils/fetch'
 import { Toast, Svga, Mask, Loading, Img } from '../../common/index'
 import { useClientRect, useInterval, useKeyPress, useRenderTime } from './useCommon'
 
+
 const Main = () => {
     return (
         <React.Fragment>
