@@ -1,3 +1,6 @@
+# 2020-8-6
+### 新增简易组件msg
+
 # 2020-7-21
 ### 删除多余代码
 ### useRenderTime函数的问题解决
@@ -60,7 +63,7 @@
 5、useCommon为自身的自定义useHook。
 
 ### 组件
-### (全局参数setMask、setToast、setLoading)
+### (全局参数setMask、setToast、setLoading、setMsg)
 
 ## mask组件
 封装了简单的弹出样式，以及弹出的方法。
@@ -78,6 +81,12 @@
 ----
 ```
     setToast(123)  //调用
+```
+## msg组件(类似与toast但是无限叠加)
+封装了简单的toast样式
+----
+```
+    setMsg(123)  //调用
 ```
 
 ## loading组件

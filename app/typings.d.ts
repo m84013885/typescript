@@ -10,6 +10,7 @@ interface Window {
     setLoading: any,
     setToast: any,
     setMask: any,
+    setMsg: any,
     timer: any,
     scrollDOM: any
 }
