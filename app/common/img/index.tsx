@@ -4,12 +4,11 @@ import * as style from "./index.css"
 
 interface prop {
     className: string;
-    position?: any;
     children?: any;
 }
 let lds: any = null
 const Img = (prop: prop) => {
-    const { className, children, position } = prop
+    const { className, children } = prop
     const [loading, setLoading] = useState(true)
     const [wh, setWh] = useState([0, 0])
     const [scale, setScale] = useState(1)
@@ -27,6 +26,7 @@ const Img = (prop: prop) => {
             img.src = t
             img.onload = () => {
                 setLoading(false)
+                setScale(1)
             }
         }
     }
@@ -40,10 +40,12 @@ const Img = (prop: prop) => {
     const _render = () => {
         if (loading) {
             return (
-                <div className={style.ldsContent} style={{ width: wh[0] + 'px', height: wh[1] + 'px', position: position }}>
-                    <div className={style.lds} ref={(e) => { lds = e }}><div></div><div></div><div></div><div></div></div>
+                <React.Fragment>
+                    <div className={style.ldsContent} style={{ width: wh[0] + 'px', height: wh[1] + 'px'}}>
+                        <div className={style.lds} ref={(e) => { lds = e }}><div></div><div></div><div></div><div></div></div>
+                    </div>
                     <div className={className} style={{ opacity: 0 }} ref={(e) => { _getDom(e) }}></div>
-                </div>
+                </React.Fragment>
             )
         } else {
             return (

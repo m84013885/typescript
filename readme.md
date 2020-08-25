@@ -102,11 +102,11 @@
 
 ## img组件
 封装了简单的img样式(可以直接当作div使用，只是里面有一个图片未加载出来的loading动画)
+目前不支持定位相关的内容
 ----
 | 参数名字 | 值类型 | 默认值  | 说明 |  是否必需 |
 |---------|---------|--------- |---------|---------|
 | className | string | null | 就是clasName | 是 |
-| position | string | null | 就是css的定位属性 | 否 |
 | children | dom | null | 就是内容 | 否 |
 
 
