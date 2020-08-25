@@ -1,19 +1,16 @@
 import * as React from "react"
 import { useEffect, useState, useCallback, useMemo, useReducer, useRef } from "react"
 
-window.timer = []
 
-// 查看元素位置与长宽高
-function useClientRect() {
-    const [rect, setRect] = useState(null);
-    const ref = useCallback(node => {
-        if (node !== null) {
-            setRect(node.getBoundingClientRect());
-        }
-    }, []);
-    return [rect, ref];
-}
 // 定时器
+/*
+useInterval(()=>{
+    
+},1000)
+停止某个定时器
+clearInterval(window.timer[num])
+*/
+window.timer = []
 function useInterval(callback: any, delay: number) {
     const saveCallback: any = useRef()
     useEffect(() => {
@@ -30,40 +27,41 @@ function useInterval(callback: any, delay: number) {
 }
 
 // key事件按键
+/*
+    const left = useKeyPress(65)
+    useEffect(()=>{
+    当left为true就是点击下去了
+    },[left])
+*/
 function useKeyPress(targetKey: any) {
-    // State for keeping track of whether key is pressed
     const [keyPressed, setKeyPressed] = useState(false)
-
-    // If pressed key is our target key then set to true
     function downHandler(prop: any) {
         const { keyCode } = prop
         if (keyCode === targetKey) {
-            setKeyPressed(true);
+            setKeyPressed(true)
         }
     }
-
-    // If released key is our target key then set to false
     const upHandler = (prop: any) => {
         const { keyCode } = prop
         if (keyCode === targetKey) {
-            setKeyPressed(false);
+            setKeyPressed(false)
         }
-    };
-
-    // Add event listeners
+    }
     useEffect(() => {
-        window.addEventListener('keydown', downHandler);
-        window.addEventListener('keyup', upHandler);
-        // Remove event listeners on cleanup
+        window.addEventListener('keydown', downHandler)
+        window.addEventListener('keyup', upHandler)
         return () => {
-            window.removeEventListener('keydown', downHandler);
-            window.removeEventListener('keyup', upHandler);
-        };
-    }, []); // Empty array ensures that effect is only run on mount and unmount
-
-    return keyPressed;
+            window.removeEventListener('keydown', downHandler)
+            window.removeEventListener('keyup', upHandler)
+        }
+    }, [])
+    return keyPressed
 }
+
 // 参数时间戳
+/*
+    timeEnd时间戳-timeStart时间戳
+*/
 function useRenderTime(timeStart: number, timeEnd: number) {
     const timeStartYear = new Date(timeStart).getFullYear() // 开始年
     const timeStartMonth = new Date(timeStart).getMonth() + 1 // 开始月
@@ -93,4 +91,4 @@ function useRenderTime(timeStart: number, timeEnd: number) {
 }
 
 
-export { useClientRect, useInterval, useKeyPress, useRenderTime }
+export { useInterval, useKeyPress, useRenderTime }

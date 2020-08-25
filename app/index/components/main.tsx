@@ -4,7 +4,7 @@ import * as style from "./main.css"
 
 import _fetch from '../../utils/fetch'
 import { Toast, Svga, Mask, Loading, Img, Msg } from '../../common/index'
-import { useClientRect, useInterval, useKeyPress, useRenderTime } from './useCommon'
+import { useInterval, useKeyPress, useRenderTime } from './useCommon'
 
 const Main = () => {
     return (
