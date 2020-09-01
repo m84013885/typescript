@@ -8,10 +8,12 @@ let canvas: any = null
 
 interface prop {
     svga: any;
+    loop?: any;
+    fillMode?: string;
 }
 
 const Svga = (prop: prop) => {
-    const { svga } = prop
+    const { svga, loop, fillMode } = prop
     useEffect(() => {
         const downloader = new Downloader()
         const parser = new Parser()
@@ -22,8 +24,8 @@ const Svga = (prop: prop) => {
                 const svgaData = await parser.do(fileData)
 
                 player.set({
-                    loop: 1,
-                    fillMode: 'forwards',
+                    loop: loop || 1,
+                    fillMode: fillMode || 'forwards',
                 })
 
                 await player.mount(svgaData)
@@ -36,9 +38,9 @@ const Svga = (prop: prop) => {
                     .$on('clear', () => console.log('event clear'))
                     .$on('process', () => {
                         // console.log('event process', player.progress)
-                        if (player.progress > 83.5) {
-                            player.pause()
-                        }
+                        // if (player.progress > 83.5) {
+                        //     player.pause()
+                        // }
                     })
 
                 // player.startFrame(10)

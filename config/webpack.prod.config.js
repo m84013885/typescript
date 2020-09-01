@@ -56,13 +56,26 @@ const config = merge(commonConfig, {
         exclude: [nodeModuleDir]
       },
       {
-        test: /\.(png|svg|svga|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif)$/,
         use: [{
           loader: 'url-loader',
           options: {
             limit: 2500,
             outputPath: assestPathName,
             publicPath: './'
+          },
+        }],
+        include: [appDir],
+        exclude: [nodeModuleDir]
+      },
+      {
+        test: /\.(svga)$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 2500,
+            outputPath: assestPathName,
+            publicPath: assestPathName
           },
         }],
         include: [appDir],

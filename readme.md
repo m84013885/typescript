@@ -1,3 +1,8 @@
+# 2020-9-1
+### 增加组件img和svga的例子
+### 完善了svga组件
+### 重新配置webpack为svga的打包方式
+
 # 2020-8-6
 ### 新增简易组件msg
 
@@ -116,3 +121,5 @@
 | 参数名字 | 值类型 | 默认值  | 说明 |  是否必需 |
 |---------|---------|--------- |---------|---------|
 | svga | string | null | svga文件 | 是 |
+| loop | number||boolean | 1 | 循环次数或者是否一直循环 | 否 |
+| fillMode | string | forwards | 类似与anima的fillMode属性 | 否 |

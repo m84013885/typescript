@@ -6,11 +6,15 @@ import _fetch from '../../utils/fetch'
 import { Toast, Svga, Mask, Loading, Img, Msg } from '../../common/index'
 import { useInterval, useKeyPress, useRenderTime } from './useCommon'
 
+import test from '../assets/jb.svga'
+
 const Main = () => {
     return (
         <React.Fragment>
             <div className={style.scrollView}>
                 {/* something */}
+                <Svga svga={test} />
+                <Img className={style.test} />
             </div>
             <Loading />
             <Mask>
