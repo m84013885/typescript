@@ -61,11 +61,11 @@
 
 
 ### 规范化与结构化
-#### 1.app文件夹内的内容就是需要编写的文件,其余都是打包相关的文件.
-#### 2.common文件夹是公共组建(不轻易更改的),utils文件夹就是公共库.其余的文件夹就是页面文件夹(外部router.json来制定哪些页面)
-#### 3.接着进入页面文件夹assets就是放css静态图片的。index.common.css就是页面reset的css之类的(***.common.css的后缀打包不会加hash码),其余的是入口文件.
-#### 4.components文件夹内为自身组件.
-#### 5.useCommon为自身的自定义useHook.
+#### 1.app文件夹内的内容就是需要编写的文件,其余都是打包相关的文件.
+#### 2.common文件夹是公共组建(不轻易更改的),utils文件夹就是公共库.其余的文件夹就是页面文件夹(外部router.json来制定哪些页面)
+#### 3.接着进入页面文件夹assets就是放css静态图片的。index.common.css就是页面reset的css之类的(***.common.css的后缀打包不会加hash码),其余的是入口文件.
+#### 4.components文件夹内为自身组件.
+#### 5.useCommon为自身的自定义useHook.
 
 ### 组件
 ### (全局参数setMask、setToast、setLoading、setMsg)
