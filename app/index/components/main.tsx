@@ -13,7 +13,9 @@ const Main = () => {
         <React.Fragment>
             <div className={style.scrollView}>
                 {/* something */}
-                <Svga svga={test} />
+                <div className={style.canvas}>
+                    <Svga svga={test} />
+                </div>
                 <Img className={style.test} />
             </div>
             <Loading />
