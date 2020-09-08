@@ -1,3 +1,9 @@
+# 2020-9-8
+### 前几天研究了一下mobx
+### 发现使用react-hook的最佳方案是使用useContext
+### 那我还不如不用mobx直接用mobx官网上的例子完善一下useContext的使用就好了，做到类似与store的效果
+### 少了mobx注入和调用，更加方便
+
 # 2020-9-1
 ### 增加组件img和svga的例子
 ### 完善了svga组件

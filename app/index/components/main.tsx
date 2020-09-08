@@ -7,11 +7,18 @@ import { Toast, Svga, Mask, Loading, Img, Msg } from '../../common/index'
 import { useInterval, useKeyPress, useRenderTime } from './useCommon'
 
 import test from '../assets/jb.svga'
+import Test from './test'
+
+import { useStore } from '../../utils/stroe'
+
 
 const Main = () => {
+    const { num } = useStore()
     return (
         <React.Fragment>
             <div className={style.scrollView}>
+                <Test />
+                {num}
                 {/* something */}
                 <div className={style.canvas}>
                     <Svga svga={test} />

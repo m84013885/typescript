@@ -18,5 +18,7 @@ if (dpr >= 2) {
 }
 
 import Main from "./components/main"
+import { StoreProvider } from '../utils/stroe'
 
-ReactDOM.render(<Main />, document.getElementById("main"))
+
+ReactDOM.render(<StoreProvider><Main /></StoreProvider>, document.getElementById("main"))
