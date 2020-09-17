@@ -56,7 +56,7 @@ const config = merge(commonConfig, {
         exclude: [nodeModuleDir]
       },
       {
-        test: /\.(png|svg|svga|jpg|gif)$/,
+        test: /\.(png|svg|svga|jpg|gif|mp4)$/,
         use: [{
           loader: 'url-loader', // file-loader
           options: { limit: 2500 }

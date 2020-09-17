@@ -39,6 +39,7 @@
     "md5": "^2.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "svga.lite": "^1.4.1"
+    "svga.lite": "^1.4.1",
+    "video-animation-player": "^0.1.2"
   }
 }

@@ -69,7 +69,7 @@ const config = merge(commonConfig, {
         exclude: [nodeModuleDir]
       },
       {
-        test: /\.(svga)$/,
+        test: /\.(svga|mp4)$/,
         use: [{
           loader: 'url-loader',
           options: {

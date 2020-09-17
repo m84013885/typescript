@@ -1,3 +1,6 @@
+# 2020-9-17
+### 把之前写的简易swiper组件移了过来
+
 # 2020-9-8
 ### 前几天研究了一下mobx
 ### 发现使用react-hook的最佳方案是使用useContext
@@ -129,3 +132,25 @@
 | svga | string | null | svga文件 | 是 |
 | loop | number||boolean | 1 | 循环次数或者是否一直循环 | 否 |
 | fillMode | string | forwards | 类似与anima的fillMode属性 | 否 |
+----
+## swiper组件
+利用react-hook外加简单的css控制，制作一个简易的swiper组件。
+```
+    <Swiper 
+        autoplay={1000} 
+        loop={false} 
+        min={20} 
+        changeIndex={(e) => { console.log(e) }}
+    >
+        <div>1</div>
+        <div>2</div>
+    </Swiper>
+```
+| 参数名字 | 值类型 | 默认值  | 说明 |  是否必需 |
+|---------|---------|--------- |---------|---------|
+| autoplay | number | 86400000 | 自动切换时间 | 否 |
+| loop | bool | true | 让Swiper看起来是循环 | 否 |
+| min | number | 10 | 最小滑动距离(滑动大于此值时切换) | 否 |
+| changeIndex | func | null | 返回当前的index | 否 |
+| noTouch | bool | false | 禁止触碰 | 否 |
+| init | number | 1 | 禁止触碰 | 否 |
