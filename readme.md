@@ -153,4 +153,4 @@
 | min | number | 10 | 最小滑动距离(滑动大于此值时切换) | 否 |
 | changeIndex | func | null | 返回当前的index | 否 |
 | noTouch | bool | false | 禁止触碰 | 否 |
-| init | number | 1 | 禁止触碰 | 否 |
+| init | number | 1 | 初始位置 | 否 |
