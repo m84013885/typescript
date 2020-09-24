@@ -18,7 +18,7 @@ const Main = () => {
         <React.Fragment>
             <div className={style.scrollView}>
                 <Swiper>
-                    123
+                    <div>123</div>
                 </Swiper>
                 <Test />
                 <Video />

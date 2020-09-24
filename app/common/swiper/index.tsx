@@ -5,7 +5,10 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 let timer: any = null
 
 const Swiper = (props: any) => {
-    let { children, autoplay = 86400000, loop = true, min = 10, changeIndex, noTouch = false, init = 2 } = props
+    let { children, autoplay = 86400000, loop = true, min = 10, changeIndex, noTouch = false, init = 1 } = props
+    if (typeof (children) !== "object" || !children.length) {
+        return children
+    }
     const childrenLength = loop ? children.length + 2 : children.length
     const [swiperWidth, setSwiperWidth] = useState(0)
     const [touchStart, setTouchStart] = useState(null)
