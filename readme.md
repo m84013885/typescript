@@ -160,7 +160,7 @@
 | init | number | 1 | 初始位置 | 否 |
 
 ## anima组件
-一个非常简单的图片播放组件。
+一个非常简单的图片播放组件(固定60帧动画)。
 ```
 <Anima imgNumber={125} path='index/assets/anima/' play={anima} callback={() => { console.log('end') }} />
 ```
