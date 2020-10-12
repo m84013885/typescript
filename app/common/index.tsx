@@ -6,5 +6,6 @@ import Loading from './loading'
 import Img from './img'
 import Video from './video'
 import Swiper from './swiper'
+import Anima from './anima'
 
-export { Toast, Svga, Mask, Loading, Img, Msg, Video, Swiper }
+export { Toast, Svga, Mask, Loading, Img, Msg, Video, Swiper, Anima }

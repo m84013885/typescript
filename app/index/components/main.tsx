@@ -3,31 +3,16 @@ import { useEffect, useState, useCallback, useMemo, useReducer, useRef } from "r
 import * as style from "./main.css"
 
 import _fetch from '../../utils/fetch'
-import { Toast, Svga, Mask, Loading, Img, Msg, Video, Swiper } from '../../common/index'
-import { useInterval, useKeyPress, useRenderTime } from './useCommon'
-
-import test from '../assets/jb.svga'
-import Test from './test'
-
-import { useStore } from '../../utils/stroe'
-
+import { Toast, Svga, Mask, Loading, Img, Msg, Video, Swiper, Anima } from '../../common/index'
+import { useInterval, useKeyPress, useRenderTime } from '../../common/useCommon'
 
 const Main = () => {
-    const { num } = useStore()
+    const [anima, setAnima] = useState(false)
     return (
         <React.Fragment>
-            <div className={style.scrollView}>
-                <Swiper>
-                    <div>123</div>
-                </Swiper>
-                <Test />
-                <Video />
-                {num}
+            <div className={style.scrollView} onClick={() => { setAnima(true) }}>
                 {/* something */}
-                <div className={style.canvas}>
-                    <Svga svga={test} />
-                </div>
-                <Img className={style.test} />
+                <Anima imgNumber={125} path='index/assets/anima/' play={anima} callback={() => { console.log('end') }} />
             </div>
             <Loading />
             <Mask>

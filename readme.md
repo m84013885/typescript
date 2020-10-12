@@ -1,3 +1,7 @@
+# 2020-10-12
+### 新增anima组件
+### 该组件简单封装播放图片动画的方法
+
 # 2020-9-17
 ### 把之前写的简易swiper组件移了过来
 
@@ -154,3 +158,15 @@
 | changeIndex | func | null | 返回当前的index | 否 |
 | noTouch | bool | false | 禁止触碰 | 否 |
 | init | number | 1 | 初始位置 | 否 |
+
+## anima组件
+一个非常简单的图片播放组件。
+```
+<Anima imgNumber={125} path='index/assets/anima/' play={anima} callback={() => { console.log('end') }} />
+```
+| 参数名字 | 值类型 | 默认值  | 说明 |  是否必需 |
+|---------|---------|--------- |---------|---------|
+| imgNumber | number | 无 | 图片的数量 | 是 |
+| path | string | 无 | 图片的路径(需要带上当前目录,图片名字是数字下标加.anima的png文件才行) | 是 |
+| paly | bool | 无 | 播放按钮 | 是 |
+| callback | func | null | 结束执行的函数 | 否 |

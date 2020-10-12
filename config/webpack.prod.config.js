@@ -56,13 +56,39 @@ const config = merge(commonConfig, {
         exclude: [nodeModuleDir]
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(svg|jpg|gif)$/,
         use: [{
           loader: 'url-loader',
           options: {
             limit: 2500,
             outputPath: assestPathName,
             publicPath: './'
+          },
+        }],
+        include: [appDir],
+        exclude: [nodeModuleDir]
+      },
+      {
+        test: new RegExp(`^(?!.*\\.anima).*\\.png`),
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 2500,
+            outputPath: assestPathName,
+            publicPath: './'
+          },
+        }],
+        include: [appDir],
+        exclude: [nodeModuleDir]
+      },
+      {
+        test: new RegExp(`^(.*\\.anima).*\\.png`),
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 2500,
+            outputPath: assestPathName,
+            publicPath: assestPathName
           },
         }],
         include: [appDir],
