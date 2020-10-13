@@ -1,9 +1,14 @@
-.none{
-  display: none;
-}
 .imageContent{
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+}
+.opacity{
+  opacity: 0;
+
+  composes:imageContent;
 }
 .image{
   width: 100%;
