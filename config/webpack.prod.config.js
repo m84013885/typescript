@@ -87,8 +87,8 @@ const config = merge(commonConfig, {
           loader: 'url-loader',
           options: {
             limit: 2500,
-            outputPath: assestPathName,
-            publicPath: assestPathName
+            outputPath: assestPathName + '/anima',
+            publicPath: assestPathName + '/anima'
           },
         }],
         include: [appDir],
