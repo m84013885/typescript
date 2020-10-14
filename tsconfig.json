@@ -2,7 +2,12 @@
   "compilerOptions": {
     "sourceMap": true,
     "noImplicitAny": true,
-    "lib": ["dom", "es5", "ScriptHost", "es2015.promise"],
+    "lib": [
+      "dom",
+      "es5",
+      "ScriptHost",
+      "es2015.promise"
+    ],
     "jsx": "react"
   }
 }

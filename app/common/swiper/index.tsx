@@ -1,4 +1,4 @@
-import * as style from './index.css'
+import style from "./index.css"
 import * as React from 'react'
 import { useState, useEffect, useRef, useCallback } from 'react'
 

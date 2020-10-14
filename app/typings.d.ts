@@ -19,6 +19,10 @@ declare module 'md5' {
     const content: any
     export = content
 }
+declare module 'vconsole' {
+    const content: any
+    export = content
+}
 declare module 'video-animation-player' {
     const content: any
     export = content

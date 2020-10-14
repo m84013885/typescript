@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import * as style from "./index.css"
+import style from "./index.css"
 
 import { Downloader, Parser, Player } from 'svga.lite'
 

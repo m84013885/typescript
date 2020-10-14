@@ -1,7 +1,6 @@
 import * as React from "react"
 import { useEffect, useState, useCallback, useMemo, useReducer, useRef } from "react"
-import * as style from "./main.css"
-
+import style from "./main.css"
 import _fetch from '../../utils/fetch'
 import { Toast, Svga, Mask, Loading, Img, Msg, Video, Swiper, Anima } from '../../common/index'
 import { useInterval, useKeyPress, useRenderTime } from '../../common/useCommon'
@@ -11,8 +10,11 @@ const animaNow = [
     { path: 'index/assets/anima1/', num: 160 }
 ]
 
-const Main = () => {
+const demo = require('../assets/482715dbbcc.mp4')
+
+const Main = ()  => {
     const [now, setNow] = useState(0)
+    const [mp4, setMp4] = useState(false)
     const [anima, setAnima] = useState(false)
     return (
         <React.Fragment>
@@ -24,12 +26,13 @@ const Main = () => {
                     <div onClick={() => { setNow(0) }}>选择1</div>
                     <div onClick={() => { setNow(1) }}>选择2</div>
                 </div>
-
+                <button className={style.button} onClick={() => { setMp4(true) }}>播放按钮</button>
                 {/* something */}
                 <div className={style.animaContent}>
                     <Anima imgNumber={animaNow[now].num} path={animaNow[now].path} play={anima} callback={() => { setAnima(false) }} />
                 </div>
-
+                <Video play={mp4} />
+                <video className={style.video} src={demo.default} controls={true}></video>
             </div>
             <Loading />
             <Mask>

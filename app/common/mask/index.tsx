@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
-import * as style from "./index.css"
+import style from "./index.css"
 
 interface prop {
   children: any
