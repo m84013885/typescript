@@ -12,7 +12,8 @@ interface Window {
     setMask: any,
     setMsg: any,
     timer: any,
-    scrollDOM: any
+    scrollDOM: any,
+    Vap: any
 }
 
 declare module 'md5' {
@@ -21,6 +22,7 @@ declare module 'md5' {
 }
 declare module 'vconsole' {
     const content: any
+    // @ts-ignore
     export = content
 }
 declare module 'video-animation-player' {

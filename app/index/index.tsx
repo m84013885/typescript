@@ -2,8 +2,7 @@ import * as React from "react"
 import * as ReactDOM from "react-dom"
 import './index.common.css'
 import * as VConsole from 'vconsole'
-const v = new VConsole()
-// console.log(VConsole)
+new VConsole()
 
 const dpr = window.devicePixelRatio || 1
 const docEl = document.documentElement

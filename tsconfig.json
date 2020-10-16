@@ -9,5 +9,8 @@
       "es2015.promise"
     ],
     "jsx": "react"
-  }
+  },
+  "exclude": [
+    "app/common/video/vap.tsx"
+  ]
 }

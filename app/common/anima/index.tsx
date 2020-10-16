@@ -2,6 +2,8 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import style from "./index.css"
 
+// http://static.yuanbobo.com/pclive/images/animation3/63/00000.png
+
 let canvas: any = null
 let ctx: any = null
 let canvasContent: any = null
@@ -12,6 +14,12 @@ let number: number = 0
 let imageLoadNum = 0
 // 加载完的数组
 let arrImage: any[] = []
+
+const fps = 25;
+let now;
+let then = Date.now();
+const interval = 1000 / fps;
+let delta;
 
 const requestAnimFrame = (function () {
     return window.requestAnimationFrame ||
@@ -39,9 +47,18 @@ const Anima = (prop: prop) => {
     }
     const step = () => {
         if (number < imgNumber) {
-            drawImgae()
-            number++
+
             requestAnimFrame(step)
+
+            now = Date.now();
+            delta = now - then;
+            if (delta > interval) {
+                // 这里不能简单then=now，否则还会出现上边简单做法的细微时间差问题。例如fps=10，每帧100ms，而现在每16ms（60fps）执行一次draw。16*7=112>100，需要7次才实际绘制一次。这个情况下，实际10帧需要112*10=1120ms>1000ms才绘制完成。
+                then = now - (delta % interval);
+                drawImgae()
+                number++
+            }
+
         } else {
             _reset()
             callback && callback()
@@ -54,9 +71,16 @@ const Anima = (prop: prop) => {
     // 图片加载
     const onImageLoad = () => {
         for (let i = 0; i < imgNumber; i++) {
-            const url = require(`../../${path}${i}.anima.png`)
+            let url
             const img = new Image()
-            img.src = url.default
+            if (path.indexOf('http') !== -1) {
+                const num = i < 10 ? '0000' + i : i < 100 ? '000' + i : '00' + i
+                url = `${path}${num}.png`
+                img.src = url
+            } else {
+                url = require(`../../${path}${i}.anima.png`)
+                img.src = url.default
+            }
             arrImage.push(img)
             img.onload = () => {
                 setImageOnLoad(i)
