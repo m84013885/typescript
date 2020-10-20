@@ -38,7 +38,7 @@ const Video = (prop: prop) => {
     }, [src])
     return (
         <React.Fragment>
-            <div id='asd' className={style.bg} onClick={() => { v.play() }}>按钮</div>
+            <div onClick={() => { v.play() }}>按钮</div>
             <div ref={(c) => { dom = c }}></div>
         </React.Fragment>
     )
