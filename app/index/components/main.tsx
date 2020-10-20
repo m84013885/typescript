@@ -18,7 +18,6 @@ const animaNow = [
 
 const Main = () => {
     const [now, setNow] = useState(0)
-    const [mp4, setMp4] = useState(false)
     const [anima, setAnima] = useState(false)
     const [mp4Src, setMp4Src] = useState(demo1.default)
     return (
@@ -32,12 +31,11 @@ const Main = () => {
                     <div onClick={() => { setNow(1) }}>选择2</div>
                 </div>
                 <button onClick={() => { setMp4Src(demo3.default) }}>变化</button>
-                <button className={style.button} onClick={() => { setMp4(true) }}>播放按钮</button>
                 {/* something */}
-                <div className={style.animaContent}>
+                {/* <div className={style.animaContent}>
                     <Anima initNumber={animaNow[now].initNumber} imgNumber={animaNow[now].num} path={animaNow[now].path} play={anima} callback={() => { setAnima(false) }} />
-                </div>
-                <Video play={mp4} src={mp4Src} />
+                </div> */}
+                <Video src={mp4Src} />
             </div>
             <Loading />
             <Mask>
