@@ -10,9 +10,10 @@ const demo2 = require('../assets/demo.mp4')
 const demo3 = require('../assets/hhjd.mp4')
 
 const animaNow = [
-    { path: 'http://static.yuanbobo.com/pclive/images/animation3/63/', num: 131 },
+    { path: 'http://static.yuanbobo.com/anima/remix/142/', num: 120, initNumber: 1 },
+    { path: 'http://static.yuanbobo.com/anima/remix/181/', num: 125 },
     { path: 'index/assets/anima/', num: 125 },
-    { path: 'index/assets/anima1/', num: 160 }
+    { path: 'index/assets/anima1/', num: 160 },
 ]
 
 const Main = () => {
@@ -30,11 +31,11 @@ const Main = () => {
                     <div onClick={() => { setNow(0) }}>选择1</div>
                     <div onClick={() => { setNow(1) }}>选择2</div>
                 </div>
-                <button  onClick={() => { setMp4Src(demo3.default) }}>变化</button>
-                {/* <button className={style.button} onClick={() => { setMp4(true) }}>播放按钮</button> */}
+                <button onClick={() => { setMp4Src(demo3.default) }}>变化</button>
+                <button className={style.button} onClick={() => { setMp4(true) }}>播放按钮</button>
                 {/* something */}
                 <div className={style.animaContent}>
-                    <Anima imgNumber={animaNow[now].num} path={animaNow[now].path} play={anima} callback={() => { setAnima(false) }} />
+                    <Anima initNumber={animaNow[now].initNumber} imgNumber={animaNow[now].num} path={animaNow[now].path} play={anima} callback={() => { setAnima(false) }} />
                 </div>
                 <Video play={mp4} src={mp4Src} />
             </div>

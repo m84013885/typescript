@@ -15,10 +15,10 @@ let imageLoadNum = 0
 // 加载完的数组
 let arrImage: any[] = []
 
-const fps = 25;
-let now;
-let then = Date.now();
-const interval = 1000 / fps;
+const fps = 25
+let now
+let then = Date.now()
+const interval = 1000 / fps
 let delta;
 
 const requestAnimFrame = (function () {
@@ -33,21 +33,20 @@ interface prop {
     imgNumber: number,
     path: string,
     play: boolean,
+    initNumber?: number,
     callback?: () => any
 }
 
 const Anima = (prop: prop) => {
-    const { imgNumber, path, play, callback } = prop
+    const { imgNumber, path, play, callback, initNumber = 0 } = prop
     const [imageOnLoad, setImageOnLoad] = useState(0)
-
     const _reset = () => {
-        number = 0
-        imageLoadNum = 0
+        number = initNumber
+        imageLoadNum = initNumber
         arrImage = []
     }
     const step = () => {
-        if (number < imgNumber) {
-
+        if (number < (imgNumber - initNumber)) {
             requestAnimFrame(step)
 
             now = Date.now();
@@ -60,6 +59,7 @@ const Anima = (prop: prop) => {
             }
 
         } else {
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
             _reset()
             callback && callback()
         }
@@ -70,7 +70,7 @@ const Anima = (prop: prop) => {
     }
     // 图片加载
     const onImageLoad = () => {
-        for (let i = 0; i < imgNumber; i++) {
+        for (let i = initNumber; i < imgNumber; i++) {
             let url
             const img = new Image()
             if (path.indexOf('http') !== -1) {
@@ -94,7 +94,9 @@ const Anima = (prop: prop) => {
             requestAnimFrame(step)
         }
     }, [imageOnLoad])
-
+    useEffect(() => {
+        _reset()
+    }, [play])
     useEffect(() => {
         ctx = canvas.getContext('2d')
         // 初始化canvas长宽

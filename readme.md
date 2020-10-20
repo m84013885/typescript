@@ -1,3 +1,7 @@
+# 2020-10-20
+### 完善anima组件，增加初始图片数字
+### 补充Video组件说明
+
 # 2020-10-17
 ### 优化anima组件增加fps(默认25)
 
@@ -171,7 +175,7 @@
 | init | number | 1 | 初始位置 | 否 |
 
 ## anima组件
-一个非常简单的图片播放组件(固定60帧动画)。
+一个非常简单的图片播放组件(固定25帧动画，有需要请在组件内修改)。
 ```
 <Anima imgNumber={125} path='index/assets/anima/' play={anima} callback={() => { console.log('end') }} />
 ```
@@ -180,4 +184,15 @@
 | imgNumber | number | 无 | 图片的数量 | 是 |
 | path | string | 无 | 图片的路径(需要带上当前目录,图片名字是数字下标加.anima的png文件才行) | 是 |
 | paly | bool | 无 | 播放按钮 | 是 |
+| initNumber | number | 0 | 动画图片的起始位置 | 否 |
 | callback | func | null | 结束执行的函数 | 否 |
+
+## Video组件
+播放mp4的组件
+```
+ <Video play={mp4} src={mp4Src} />
+```
+| 参数名字 | 值类型 | 默认值  | 说明 |  是否必需 |
+|---------|---------|--------- |---------|---------|
+| paly | bool | 无 | 播放按钮 | 是 |
+| src | string | 无 | mp4的路径 | 是 |
