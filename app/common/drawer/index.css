@@ -11,8 +11,9 @@
 }
 .child{
   position: absolute;
-  top: 50%;
-  left: 50%;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
 }
 .bg{
   position: absolute;
@@ -41,10 +42,10 @@
   to { opacity: 0;}
 }
 @keyframes big{
-  from { transform: translate(-50%, -50%) scale(0,0); }
-  to { transform: translate(-50%, -50%) scale(1,1);}
+  from { bottom: -100%; }
+  to { bottom: 0%; }
 }
 @keyframes small{
-  from { transform: translate(-50%, -50%) scale(1,1); }
-  to { transform: translate(-50%, -50%) scale(0,0);}
+  from { bottom: 0%; }
+  to { bottom: -100%; }
 }
