@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 let timer: any = null
 
 const Swiper = (props: any) => {
-    let { children, autoplay = 86400000, loop = true, min = 10, changeIndex, noTouch = false, init = 1 } = props
+    let { children, autoplay = 86400000, loop = true, min = 10, changeIndex, noTouch = false, init = 1, changeMove } = props
     if (typeof (children) !== "object" || !children.length) {
         return children
     }
@@ -36,6 +36,24 @@ const Swiper = (props: any) => {
             setAnimaOpen(false)
         }, 200)
     }
+    const moveEvery = (num: number) => {
+        setAnimaOpen(true)
+        const indexM = index - num
+        setPosition(position + swiperWidth * indexM)
+        setIndex(num)
+        setTouch(0)
+        setTimeout(() => {
+            setAnimaOpen(false)
+        }, 200)
+    }
+    useEffect(() => {
+        if (changeMove[0] !== -1) {
+            moveEvery(changeMove[0])
+            changeMove[1](-1)
+        }
+    }, [changeMove[0]])
+
+
     const autoMove = () => {
         if (childrenLength - 1 !== index) {
             moveAdd()

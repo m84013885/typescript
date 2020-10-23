@@ -8,10 +8,26 @@ import { useInterval, useKeyPress, useRenderTime } from '../../common/useCommon'
 const mp4 = require('../assets/482715dbbcc.mp4').default
 
 const Main = () => {
+    const [test, setTest] = useState(0)
     return (
         <React.Fragment>
-            <div className={style.scrollView}>
-                <Video src={mp4} />
+            <div className={style.scrollView} onClick={() => { setTest(3) }}>
+                {/* <Video src={mp4} /> */}
+                <Swiper
+                    autoplay={100000}
+                    loop={true}
+                    min={20}
+                    changeIndex={(e: any) => { console.log(e) }}
+                    changeMove={[test, setTest]}
+                >
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>
+                    <div>7</div>
+                </Swiper>
             </div>
             <Loading />
             <Mask>
@@ -19,7 +35,7 @@ const Main = () => {
                 {/* something */}
             </Mask>
             <Drawer>
-            <div className={style.test}></div>
+                <div className={style.test}></div>
             </Drawer>
             <Toast />
             <Msg />
