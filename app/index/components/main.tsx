@@ -5,29 +5,16 @@ import _fetch from '../../utils/fetch'
 import { Toast, Svga, Mask, Loading, Img, Msg, Video, Swiper, Anima, Drawer } from '../../common/index'
 import { useInterval, useKeyPress, useRenderTime } from '../../common/useCommon'
 
-const mp4 = require('../assets/482715dbbcc.mp4').default
+const test = [
+    { src: 'https://static.yuanbobo.com/anima/entry/27/', imgNumber: 75 }
+]
 
 const Main = () => {
-    const [test, setTest] = useState(0)
+    const [goPlay, setGoPlay] = useState(false)
     return (
         <React.Fragment>
-            <div className={style.scrollView} onClick={() => { setTest(3) }}>
-                {/* <Video src={mp4} /> */}
-                <Swiper
-                    autoplay={100000}
-                    loop={true}
-                    min={20}
-                    changeIndex={(e: any) => { console.log(e) }}
-                    changeMove={[test, setTest]}
-                >
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
-                    <div>7</div>
-                </Swiper>
+            <div className={style.scrollView} onClick={() => { setGoPlay(true) }}>
+                <Anima path={test[0].src} imgNumber={test[0].imgNumber} play={goPlay} />
             </div>
             <Loading />
             <Mask>

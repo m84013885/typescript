@@ -2,8 +2,6 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import style from "./index.css"
 
-// http://static.yuanbobo.com/pclive/images/animation3/63/00000.png
-
 let canvas: any = null
 let ctx: any = null
 let canvasContent: any = null
@@ -34,11 +32,13 @@ interface prop {
     path: string,
     play: boolean,
     initNumber?: number,
+    width?: number,
+    height?: number,
     callback?: () => any
 }
 
 const Anima = (prop: prop) => {
-    const { imgNumber, path, play, callback, initNumber = 0 } = prop
+    const { imgNumber, path, play, callback, initNumber = 0, width, height } = prop
     const [imageOnLoad, setImageOnLoad] = useState(0)
     const _reset = () => {
         number = initNumber
@@ -100,8 +100,13 @@ const Anima = (prop: prop) => {
     useEffect(() => {
         ctx = canvas.getContext('2d')
         // 初始化canvas长宽
-        canvas.width = parseInt(getComputedStyle(canvasContent).width)
-        canvas.height = parseInt(getComputedStyle(canvasContent).height)
+        if (width && height) {
+            canvas.height = height
+            canvas.width = width
+        } else {
+            canvas.height = parseInt(getComputedStyle(canvasContent).height)
+            canvas.width = parseInt(getComputedStyle(canvasContent).width)
+        }
     }, [])
     useEffect(() => {
         if (play) {

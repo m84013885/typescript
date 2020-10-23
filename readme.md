@@ -200,6 +200,9 @@
 | paly | bool | 无 | 播放按钮 | 是 |
 | initNumber | number | 0 | 动画图片的起始位置 | 否 |
 | callback | func | null | 结束执行的函数 | 否 |
+| width | number | null | canvas宽 | 否 |
+| height | number | null | canvas长 | 否 |
+
 
 ## Video组件
 播放mp4的组件
