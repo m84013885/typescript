@@ -6,7 +6,8 @@ import { Toast, Svga, Mask, Loading, Img, Msg, Video, Swiper, Anima, Drawer } fr
 import { useInterval, useKeyPress, useRenderTime } from '../../common/useCommon'
 
 const test = [
-    { src: 'https://static.yuanbobo.com/anima/entry/27/', imgNumber: 75 }
+    { src: 'https://static.yuanbobo.com/anima/remix/142/', imgNumber: 121, initNumber: 1 },
+    { src: 'https://static.yuanbobo.com/anima/entry/27/', imgNumber: 75 },
 ]
 
 const Main = () => {
@@ -14,7 +15,13 @@ const Main = () => {
     return (
         <React.Fragment>
             <div className={style.scrollView} onClick={() => { setGoPlay(true) }}>
-                <Anima path={test[0].src} imgNumber={test[0].imgNumber} play={goPlay} />
+                <Anima path={test[0].src} imgNumber={test[0].imgNumber} initNumber={test[0].initNumber || 0} play={goPlay} callback={() => { setGoPlay(false) }}/>
+                <Swiper autoplay={5000}>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                </Swiper>
             </div>
             <Loading />
             <Mask>

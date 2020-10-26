@@ -89,8 +89,9 @@ const Anima = (prop: prop) => {
     }
     useEffect(() => {
         imageLoadNum++
-        if (imageLoadNum === imgNumber) {
+        if (imageLoadNum === imgNumber - 1) {
             // 加载完成
+            console.log('加载完成')
             requestAnimFrame(step)
         }
     }, [imageOnLoad])
