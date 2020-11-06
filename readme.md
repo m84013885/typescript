@@ -190,6 +190,7 @@
 | changeIndex | func | null | 返回当前的index | 否 |
 | noTouch | bool | false | 禁止触碰 | 否 |
 | init | number | 1 | 初始位置 | 否 |
+| changeMove | array | [] | 修改位置(一个数值位置以及一个改变的值) | 否 |
 
 ## anima组件
 一个非常简单的图片播放组件(固定25帧动画，有需要请在组件内修改)。
