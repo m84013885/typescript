@@ -14,7 +14,7 @@ const Main = () => {
     const [goPlay, setGoPlay] = useState(false)
     return (
         <React.Fragment>
-            <div className={style.scrollView} onClick={() => { setGoPlay(true) }}>
+            <div className={style.scrollView} onClick={() => { window.setMask(0) }}>
                 <Anima path={test[0].src} imgNumber={test[0].imgNumber} initNumber={test[0].initNumber || 0} play={goPlay} callback={() => { setGoPlay(false) }}/>
                 <Swiper autoplay={5000} loop={false}>
                     <div>1</div>

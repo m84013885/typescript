@@ -11,7 +11,7 @@
 }
 .child{
   position: absolute;
-  bottom: -100%;
+  bottom: 0;
   left: 0;
   width: 100%;
 }
@@ -42,10 +42,10 @@
   to { opacity: 0;}
 }
 @keyframes big{
-  from { bottom: -100%; }
-  to { bottom: 0%; }
+  from { transform: translateY(100%); }
+  to { transform: translateY(0%); }
 }
 @keyframes small{
-  from { bottom: 0%; }
-  to { bottom: -100%; }
+  from { transform: translateY(0%); }
+  to { transform: translateY(100%); }
 }
