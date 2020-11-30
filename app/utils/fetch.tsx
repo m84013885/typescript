@@ -1,5 +1,5 @@
 import * as md5 from "md5"
-
+import { objectAssign } from './tool'
 const _fetch = async (obj: any) => {
     const CREDS = 'include'
     const SALT = ''
@@ -33,8 +33,7 @@ const _fetch = async (obj: any) => {
     }
     // 获取sig
     const sigFunc = (query: any, body: any) => {
-        // ObjectConstructor
-        query = Object.assign(Mustparameter(), query)
+        query = objectAssign(Mustparameter(), query)
         const sigQueryString = sigSortObj(query)
         if (body) {
             const sigBodyString = sigSortObj(body)

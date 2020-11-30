@@ -3,7 +3,6 @@ import * as ReactDOM from "react-dom"
 import './index.common.css'
 // import * as VConsole from 'vconsole'
 // new VConsole()
-
 const dpr = window.devicePixelRatio || 1
 const docEl = document.documentElement
 // detect 0.5px supports
