@@ -18,7 +18,7 @@ const objectAssign = Object.assign || function (target: any) {
 
 const Swiper = (props: any) => {
     let { children, autoplay = 86400000, loop = true, min = 10, changeIndex = () => { }, noTouch = false, init = 1, changeMove = [] } = props
-    if (typeof (children) !== "object" || !children.length) {
+    if (typeof (children) !== "object" || children.length <= 1) {
         return children
     }
     const childrenLength = loop ? children.length + 2 : children.length
