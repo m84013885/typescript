@@ -12,9 +12,11 @@ const appDir = path.resolve(process.cwd(), 'app')
 const { routers } = require('../router.json')
 const config = merge(commonConfig, {
   mode: 'development',
+  target:'web',
   devServer: {
     contentBase: path.resolve(process.cwd(), 'dll'),
     compress: true,
+    hot: true,
     port,
     host,
     historyApiFallback: true,
@@ -27,9 +29,6 @@ const config = merge(commonConfig, {
     }
   },
   devtool: 'inline-source-map',
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-  ],
   module: {
     rules: [
       {

@@ -15,7 +15,6 @@ interface Window {
     timer: any,
     scrollDOM: any,
     Vap: any,
-    module: any
 }
 
 declare module 'md5' {

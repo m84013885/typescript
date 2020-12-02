@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dll": "webpack --config config/webpack.dll.config.js",
-    "dev": "webpack serve --config config/webpack.dev.config.js --hot",
+    "dev": "webpack serve --config config/webpack.dev.config.js",
     "dep": "webpack --config config/webpack.prod.config.js"
   },
   "browserslist": [
