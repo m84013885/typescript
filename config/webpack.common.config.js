@@ -6,10 +6,16 @@ const appDir = path.resolve(process.cwd(), 'app')
 module.exports = {
   entry: {},
   plugins: [
-    new webpack.DllReferencePlugin({
-      context: process.cwd(),
-      manifest: require('../dll/dll.manifest.json')
-    })
+    new webpack.ProvidePlugin({
+      React: 'react',
+      ReactDom: 'react-dom',
+      useEffect: ['react','useEffect'],
+      useState: ['react','useState'],
+      useCallback: ['react','useCallback'],
+      useMemo: ['react','useMemo'],
+      useReducer: ['react','useReducer'],
+      useRef: ['react','useRef'],
+    }),
   ],
   resolve: {
     extensions: [".ts", ".tsx", '.js']

@@ -1,7 +1,7 @@
+const webpack = require('webpack')
 const commonConfig = require('./webpack.common.config')
 const { merge } = require('webpack-merge')
 const path = require('path')
-const webpack = require('webpack')
 const process = require('process')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const nodeModuleDir = path.resolve(process.cwd(), 'node_module')
@@ -14,7 +14,6 @@ const config = merge(commonConfig, {
   mode: 'development',
   target:'web',
   devServer: {
-    contentBase: path.resolve(process.cwd(), 'dll'),
     compress: true,
     hot: true,
     port,
@@ -28,6 +27,9 @@ const config = merge(commonConfig, {
       }
     }
   },
+  plugins: [
+    new webpack.DefinePlugin({ __DEV__: 'true' })
+  ],
   devtool: 'inline-source-map',
   module: {
     rules: [
@@ -70,7 +72,6 @@ routers.map((item) => {
   const tempSrc = path.join(appDir, `./${item}/index.html`)
   const plugin = new HtmlWebpackPlugin({
     filename: `${item}`,
-    dll: '/dll.js',
     template: tempSrc,
     inject: true,
     chunks: [item]

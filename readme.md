@@ -1,3 +1,9 @@
+# 2020-12-2
+### 删除dll。webpack4的时候用处已经不大了。现在已经webpack5了
+### 新增__DEV__变量
+### 重新用回ProvidePlugin插件
+### 分散ts声明文件
+
 # 2020-12-1
 ### 更新至webpack5.0以上热更新失效问题（在config上增加target：‘web’即可）
 
