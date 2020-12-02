@@ -4,18 +4,6 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 
 let timer: any = null
 
-const objectAssign = Object.assign || function (target: any) {
-    for (var i = 1; i < arguments.length; i++) {
-        var source = arguments[i];
-        for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-                target[key] = source[key];
-            }
-        }
-    }
-    return target;
-}
-
 const Swiper = (props: any) => {
     let { children, autoplay = 86400000, loop = true, min = 10, changeIndex = () => { }, noTouch = false, init = 1, changeMove = [] } = props
     if (typeof (children) !== "object" || children.length <= 1) {
@@ -228,7 +216,7 @@ const Swiper = (props: any) => {
             return (
                 <div className={style.swiperContent}
                     style={
-                        objectAssign(
+                        Object.assign(
                             transfromMove(),
                             transitionAnima(),
                             { width: (childrenLength || 1) * swiperWidth + 'px' })

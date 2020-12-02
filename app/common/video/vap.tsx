@@ -1,21 +1,8 @@
 // @ts-nocheck
-
-const objectAssign = Object.assign || function (target: any) {
-  for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-          if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key];
-          }
-      }
-  }
-  return target;
-}
-
 (function (global, factory) {
+  window.Vap = factory()
   // typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   //   typeof define === 'function' && define.amd ? define(factory) :
-  (window.Vap = factory());
 }(this, (function () {
   'use strict';
 
@@ -354,7 +341,7 @@ const objectAssign = Object.assign || function (target: any) {
       if (!options.container || !options.src) {
         return console.warn('[Alpha video]: options container and src cannot be empty!');
       }
-      this.options = objectAssign({
+      this.options = Object.assign({
         // 视频url
         src: '',
         // 循环播放
@@ -908,7 +895,7 @@ const objectAssign = Object.assign || function (target: any) {
    */
   function index(options) {
     if (canWebGL()) {
-      return new WebglRenderVap(objectAssign({}, options));
+      return new WebglRenderVap(Object.assign({}, options));
     } else {
       throw new Error('your browser not support webgl');
     }

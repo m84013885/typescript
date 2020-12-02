@@ -3,6 +3,7 @@
 ### 新增__DEV__变量
 ### 重新用回ProvidePlugin插件
 ### 分散ts声明文件
+### 新增个人的babel，有一些个人常用兼容性差的的es6方法
 
 # 2020-12-1
 ### 更新至webpack5.0以上热更新失效问题（在config上增加target：‘web’即可）

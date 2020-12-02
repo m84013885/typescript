@@ -8,7 +8,7 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       React: 'react',
-      ReactDom: 'react-dom',
+      ReactDOM: 'react-dom',
       useEffect: ['react','useEffect'],
       useState: ['react','useState'],
       useCallback: ['react','useCallback'],

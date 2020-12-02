@@ -1,4 +1,5 @@
 declare const React: any
+declare const ReactDOM: any
 declare const useState: any
 declare const useEffect: any
 declare const useCallback: any
