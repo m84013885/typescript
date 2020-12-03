@@ -8,13 +8,14 @@ const Main = () => {
         <React.Fragment>
             <div className={style.scrollView}>
                 {/* something */}
+                <div className={style.test1}></div>
             </div>
             <Loading />
             <Mask>
-                <div className={style.test}></div>
+                {/* something */}
             </Mask>
             <Drawer>
-                <div className={style.test}></div>
+                {/* something */}
             </Drawer>
             <Toast />
             <Msg />
