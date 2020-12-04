@@ -3,7 +3,11 @@ import _fetch from '../../utils/fetch'
 import { Toast, Svga, Mask, Loading, Img, Msg, Video, Swiper, SwiperItem, Anima, Drawer } from '../../common/index'
 import { useInterval, useKeyPress, useRenderTime } from '../../common/useCommon'
 
-const Main = () => {
+import { storeContext } from '../../utils/stroe'
+
+const Main = ({ prop }: any) => {
+    const test = useContext(storeContext)
+    console.log(test)
     return (
         <React.Fragment>
             <div className={style.scrollView}>

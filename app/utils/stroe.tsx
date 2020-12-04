@@ -1,7 +1,7 @@
 import * as React from 'react'
 import createStore from './createStore'
 
-const storeContext = React.createContext(null)
+export const storeContext = React.createContext(null)
 
 export const StoreProvider = ({ children }: any) => {
     const store = createStore()

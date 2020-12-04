@@ -6,3 +6,4 @@ declare const useCallback: any
 declare const useMemo: any
 declare const useReducer: any
 declare const useRef: any
+declare const useContext: any

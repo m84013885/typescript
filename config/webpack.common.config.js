@@ -15,6 +15,7 @@ module.exports = {
       useMemo: ['react','useMemo'],
       useReducer: ['react','useReducer'],
       useRef: ['react','useRef'],
+      useContext: ['react','useContext'],
     }),
   ],
   resolve: {
