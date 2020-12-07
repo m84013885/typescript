@@ -17,6 +17,7 @@ const Main = ({ prop }: any) => {
             <Loading />
             <Mask>
                 {/* something */}
+                <div className={style.test}>1</div>
             </Mask>
             <Drawer>
                 {/* something */}

@@ -2,7 +2,7 @@
 // new VConsole()
 
 import './index.common.css'
-import '../utils/mybabel'
+import '../utils/myBabel'
 
 import Main from "./components/main"
 import { StoreProvider } from '../utils/stroe'
